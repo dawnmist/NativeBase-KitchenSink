@@ -1,8 +1,10 @@
+import { StyleSheet } from "react-native";
+
 export default {
   container: {
     flex: 1,
-    width: null,
-    height: null,
+    width: undefined,
+    height: undefined,
     backgroundColor: "#FFF"
   },
   iconContainer: {
@@ -26,4 +28,4 @@ export default {
   row: {
     paddingBottom: 20
   }
-};
+} as StyleSheet.NamedStyles<any>;

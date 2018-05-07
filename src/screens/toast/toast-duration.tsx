@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -14,8 +14,14 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class ToastDuration extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface ToastDurationProps extends NavigationScreenConfigProps { }
+interface ToastDurationState {
+  showToast: boolean;
+}
+class ToastDuration extends React.Component<ToastDurationProps, ToastDurationState> {
+  constructor(props: ToastDurationProps) {
     super(props);
     this.state = {
       showToast: false
@@ -26,7 +32,7 @@ class ToastDuration extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -36,7 +42,7 @@ class ToastDuration extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Button
             onPress={() =>
               Toast.show({

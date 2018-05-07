@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 
 import {
   Container,
@@ -17,13 +17,16 @@ import {
 
 import styles from "./styles";
 
-class NHCardTransparent extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHCardTransparentProps extends NavigationScreenConfigProps { }
+class NHCardTransparent extends React.Component<NHCardTransparentProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -33,8 +36,8 @@ class NHCardTransparent extends Component {
           <Right />
         </Header>
 
-        <Content padder>
-          <Card style={styles.mb} transparent>
+        <Content padder={true}>
+          <Card style={styles.mb} transparent={true}>
             <CardItem>
               <Body>
                 <Text>

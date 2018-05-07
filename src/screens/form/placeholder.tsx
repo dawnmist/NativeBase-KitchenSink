@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -16,13 +16,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Placeholder extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface PlaceholderProps extends NavigationScreenConfigProps { }
+class Placeholder extends React.Component<PlaceholderProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -37,11 +40,11 @@ class Placeholder extends Component {
             <Item>
               <Input placeholder="Username" />
             </Item>
-            <Item last>
-              <Input placeholder="Password" secureTextEntry />
+            <Item last={true}>
+              <Input placeholder="Password" secureTextEntry={true} />
             </Item>
           </Form>
-          <Button block style={{ margin: 15, marginTop: 50 }}>
+          <Button block={true} style={{ margin: 15, marginTop: 50 }}>
             <Text>Sign In</Text>
           </Button>
         </Content>

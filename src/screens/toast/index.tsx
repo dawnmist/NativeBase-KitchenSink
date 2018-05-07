@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -38,18 +38,21 @@ const datas = [
   },
   {
     route: "ToastButton",
-    text: "Toast button style"
+    text: "Toast button={true} style"
   }
 ];
 
-class NHToast extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHToastProps extends NavigationScreenConfigProps { }
+class NHToast extends React.Component<NHToastProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -64,9 +67,9 @@ class NHToast extends Component {
         <Content>
           <List
             dataArray={datas}
-            renderRow={data =>
+            renderRow={(data) =>
               <ListItem
-                button
+                button={true}
                 onPress={() => this.props.navigation.navigate(data.route)}
               >
                 <Left>

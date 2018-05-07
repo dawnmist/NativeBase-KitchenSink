@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 
 import {
   Container,
@@ -56,7 +56,10 @@ const datas = [
   }
 ];
 
-class HeaderNB extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface HeaderNBProps extends NavigationScreenConfigProps { }
+class HeaderNB extends React.Component<HeaderNBProps> {
   // eslint-disable-line
 
   render() {
@@ -65,7 +68,7 @@ class HeaderNB extends Component {
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -80,9 +83,9 @@ class HeaderNB extends Component {
         <Content>
           <List
             dataArray={datas}
-            renderRow={data =>
+            renderRow={(data) =>
               <ListItem
-                button
+                button={true}
                 onPress={() => this.props.navigation.navigate(data.route)}
               >
                 <Left>

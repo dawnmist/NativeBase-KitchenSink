@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -16,13 +16,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Disabled extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface DisabledProps extends NavigationScreenConfigProps { }
+class Disabled extends React.Component<DisabledProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -32,10 +35,10 @@ class Disabled extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Form>
-            <Item disabled>
-              <Input disabled placeholder="Disabled Textbox" />
+            <Item disabled={true}>
+              <Input disabled={true} placeholder="Disabled Textbox" />
               <IconNB name="ios-information-circle" />
             </Item>
           </Form>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -16,13 +16,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Icons extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface IconsProps extends NavigationScreenConfigProps { }
+class Icons extends React.Component<IconsProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -32,7 +35,7 @@ class Icons extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Grid>
             <Row style={styles.row}>
               <Col style={styles.col}>
@@ -48,7 +51,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="person" style={{ color: "#387ef5" }} />
+                <Icon active={true} name="person" style={{ color: "#387ef5" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   person
                 </Text>
@@ -75,7 +78,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="cloud-circle" style={{ color: "#27a" }} />
+                <Icon active={true} name="cloud-circle" style={{ color: "#27a" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   cloud-circle
                 </Text>
@@ -102,7 +105,7 @@ class Icons extends Component {
 
             <Row style={styles.row}>
               <Col style={styles.col}>
-                <Icon active name="camera" style={{ color: "#aaa" }} />
+                <Icon active={true} name="camera" style={{ color: "#aaa" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   camera
                 </Text>
@@ -120,13 +123,13 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="flame" style={{ color: "orange" }} />
+                <Icon active={true} name="flame" style={{ color: "orange" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   flame
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="paper" style={{ color: "#000" }} />
+                <Icon active={true} name="paper" style={{ color: "#000" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   paper
                 </Text>
@@ -141,7 +144,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="cart" style={{ color: "red" }} />
+                <Icon active={true} name="cart" style={{ color: "red" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   cart
                 </Text>
@@ -153,13 +156,13 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="paw" style={{ color: "#000" }} />
+                <Icon active={true} name="paw" style={{ color: "#000" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   paw
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="rose" style={{ color: "pink" }} />
+                <Icon active={true} name="rose" style={{ color: "pink" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   rose
                 </Text>
@@ -186,7 +189,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="eye" style={{ color: "#000" }} />
+                <Icon active={true} name="eye" style={{ color: "#000" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   eye
                 </Text>
@@ -219,7 +222,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="medkit" style={{ color: "red" }} />
+                <Icon active={true} name="medkit" style={{ color: "red" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   medkit
                 </Text>
@@ -246,13 +249,13 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="train" style={{ color: "#E14343" }} />
+                <Icon active={true} name="train" style={{ color: "#E14343" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   train
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="wine" style={{ color: "brown" }} />
+                <Icon active={true} name="wine" style={{ color: "brown" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   wine
                 </Text>
@@ -267,7 +270,7 @@ class Icons extends Component {
 
             <Row style={styles.row}>
               <Col style={styles.col}>
-                <Icon active name="nutrition" style={{ color: "red" }} />
+                <Icon active={true} name="nutrition" style={{ color: "red" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   nutrition
                 </Text>
@@ -279,7 +282,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="settings" style={{ color: "#555" }} />
+                <Icon active={true} name="settings" style={{ color: "#555" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   settings
                 </Text>
@@ -300,7 +303,7 @@ class Icons extends Component {
 
             <Row style={styles.row}>
               <Col style={styles.col}>
-                <Icon active name="chatboxes" style={{ color: "green" }} />
+                <Icon active={true} name="chatboxes" style={{ color: "green" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   chatboxes
                 </Text>
@@ -345,7 +348,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="play" style={{ color: "#f53d3d" }} />
+                <Icon active={true} name="play" style={{ color: "#f53d3d" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   play
                 </Text>
@@ -372,7 +375,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="key" style={{ color: "gold" }} />
+                <Icon active={true} name="key" style={{ color: "gold" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   key
                 </Text>
@@ -384,7 +387,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="skip-forward" style={{ color: "#999" }} />
+                <Icon active={true} name="skip-forward" style={{ color: "#999" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   skip-forward
                 </Text>
@@ -438,7 +441,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="bookmark" style={{ color: "green" }} />
+                <Icon active={true} name="bookmark" style={{ color: "green" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   bookmark
                 </Text>
@@ -450,7 +453,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="happy" style={{ color: "#ffc125" }} />
+                <Icon active={true} name="happy" style={{ color: "#ffc125" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   happy
                 </Text>
@@ -483,7 +486,7 @@ class Icons extends Component {
                 </Text>
               </Col>
               <Col style={styles.col}>
-                <Icon active name="hand" style={{ color: "#EBAB7F" }} />
+                <Icon active={true} name="hand" style={{ color: "#EBAB7F" }} />
                 <Text numberOfLines={1} style={styles.iconText}>
                   hand
                 </Text>

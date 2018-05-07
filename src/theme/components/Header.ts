@@ -1,8 +1,9 @@
+import { NativeBase } from "native-base";
 import { PixelRatio, StatusBar } from "react-native";
 
 import variable from "./../variables/platform";
 
-export default (variables = variable) => {
+export default (variables: NativeBase.Variables = variable) => {
   const platformStyle = variables.platformStyle;
   const platform = variables.platform;
 
@@ -326,8 +327,8 @@ export default (variables = variable) => {
       platform === "ios" ? 1 / PixelRatio.getPixelSizeForLayoutSize(1) : 0,
     borderBottomColor: variables.toolbarDefaultBorder,
     height:
-      variables.platform === "ios" && variables.platformStyle === "material"
-        ? variables.toolbarHeight + StatusBar.height
+      variables.platform === "ios" && variables.platformStyle === "material" && StatusBar.currentHeight
+        ? variables.toolbarHeight + StatusBar.currentHeight
         : variables.toolbarHeight,
     elevation: 3,
     shadowColor: platformStyle === "material" ? "#000" : undefined,

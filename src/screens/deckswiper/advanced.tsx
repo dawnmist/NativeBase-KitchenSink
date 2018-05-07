@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Image, View } from "react-native";
 import {
   Container,
@@ -45,13 +45,18 @@ const cards = [
   }
 ];
 
-class AdvancedDeck extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface AdvancedDeckProps extends NavigationScreenConfigProps { }
+class AdvancedDeck extends React.Component<AdvancedDeckProps> {
+  _deckSwiper: DeckSwiper | null = null;
+
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -63,14 +68,14 @@ class AdvancedDeck extends Component {
 
         <View style={{ flex: 1, padding: 12 }}>
           <DeckSwiper
-            ref={mr => (this._deckSwiper = mr)}
+            ref={(mr) => (this._deckSwiper = mr)}
             dataSource={cards}
             looping={false}
             renderEmpty={() =>
               <View style={{ alignSelf: "center" }}>
                 <Text>Over</Text>
               </View>}
-            renderItem={item =>
+            renderItem={(item) =>
               <Card style={{ elevation: 3 }}>
                 <CardItem>
                   <Left>
@@ -79,15 +84,15 @@ class AdvancedDeck extends Component {
                       <Text>
                         {item.text}
                       </Text>
-                      <Text note>NativeBase</Text>
+                      <Text note={true}>NativeBase</Text>
                     </Body>
                   </Left>
                 </CardItem>
-                <CardItem cardBody>
+                <CardItem cardBody={true}>
                   <Image
                     style={{
                       resizeMode: "cover",
-                      width: null,
+                      width: undefined,
                       flex: 1,
                       height: 300
                     }}
@@ -115,11 +120,17 @@ class AdvancedDeck extends Component {
             padding: 15
           }}
         >
-          <Button iconLeft onPress={() => this._deckSwiper._root.swipeLeft()}>
+          <Button
+            iconLeft={true}
+            onPress={() => this._deckSwiper && this._deckSwiper._root && this._deckSwiper._root.swipeLeft()}
+          >
             <Icon name="arrow-back" />
             <Text>Swipe Left</Text>
           </Button>
-          <Button iconRight onPress={() => this._deckSwiper._root.swipeRight()}>
+          <Button
+            iconRight={true}
+            onPress={() => this._deckSwiper && this._deckSwiper._root && this._deckSwiper._root.swipeRight()}
+          >
             <Text>Swipe Right</Text>
             <Icon name="arrow-forward" />
           </Button>

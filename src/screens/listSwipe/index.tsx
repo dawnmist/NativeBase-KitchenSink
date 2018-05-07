@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -30,14 +30,17 @@ const datas = [
   }
 ];
 
-class ListSwipe extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface ListSwipeProps extends NavigationScreenConfigProps { }
+class ListSwipe extends React.Component<ListSwipeProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -52,9 +55,9 @@ class ListSwipe extends Component {
         <Content scrollEnabled={false} contentContainerStyle={{ flex: 1 }}>
           <List
             dataArray={datas}
-            renderRow={data =>
+            renderRow={(data) =>
               <ListItem
-                button
+                button={true}
                 onPress={() => this.props.navigation.navigate(data.route)}
               >
                 <Left>

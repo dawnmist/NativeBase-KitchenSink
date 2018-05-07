@@ -1,6 +1,7 @@
-import color from "color";
+const color = require("color");
 
 import { Platform, Dimensions, PixelRatio } from "react-native";
+import { NativeBase } from "native-base";
 
 const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
@@ -245,4 +246,4 @@ export default {
   deviceHeight,
   isIphoneX,
   inputGroupRoundedBorderRadius: 30
-};
+} as NativeBase.Variables;

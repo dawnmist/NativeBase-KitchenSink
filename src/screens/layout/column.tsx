@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -11,13 +11,16 @@ import {
 } from "native-base";
 import { Grid, Col } from "react-native-easy-grid";
 
-class ColumnNB extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface ColumnNBProps extends NavigationScreenConfigProps { }
+class ColumnNB extends React.Component<ColumnNBProps> {
   render() {
     return (
       <Container>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>

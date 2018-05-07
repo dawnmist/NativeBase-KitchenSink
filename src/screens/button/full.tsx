@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,13 +13,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Full extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface FullProps extends NavigationScreenConfigProps { }
+class Full extends React.Component<FullProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -30,25 +33,25 @@ class Full extends Component {
         </Header>
 
         <Content style={{ backgroundColor: "#fff" }}>
-          <Button full light style={styles.mt15}>
+          <Button full={true} light={true} style={styles.mt15}>
             <Text>Light</Text>
           </Button>
-          <Button full info style={styles.mt15}>
+          <Button full={true} info={true} style={styles.mt15}>
             <Text>Info</Text>
           </Button>
-          <Button full primary style={styles.mt15}>
+          <Button full={true} primary={true} style={styles.mt15}>
             <Text>Primary</Text>
           </Button>
-          <Button full success style={styles.mt15}>
+          <Button full={true} success={true} style={styles.mt15}>
             <Text>Success</Text>
           </Button>
-          <Button full warning style={styles.mt15}>
+          <Button full={true} warning={true} style={styles.mt15}>
             <Text>Warning</Text>
           </Button>
-          <Button full danger style={styles.mt15}>
+          <Button full={true} danger={true} style={styles.mt15}>
             <Text>Danger</Text>
           </Button>
-          <Button full dark style={styles.mt15}>
+          <Button full={true} dark={true} style={styles.mt15}>
             <Text>Dark</Text>
           </Button>
         </Content>

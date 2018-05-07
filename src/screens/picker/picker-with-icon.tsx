@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -16,8 +16,14 @@ import styles from "./styles";
 
 const Item = Picker.Item;
 
-class PickerWithIcon extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface PickerWithIconProps extends NavigationScreenConfigProps { }
+interface PickerWithIconState {
+  selected1: string;
+}
+class PickerWithIcon extends React.Component<PickerWithIconProps, PickerWithIconState> {
+  constructor(props: PickerWithIconProps) {
     super(props);
     this.state = {
       selected1: "key1"
@@ -33,7 +39,7 @@ class PickerWithIcon extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>

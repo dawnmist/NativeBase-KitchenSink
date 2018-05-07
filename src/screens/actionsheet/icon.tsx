@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import * as React from "react";
+import { NavigationScreenConfigProps } from "react-navigation";
 import {
   Container,
   Header,
@@ -13,18 +14,19 @@ import {
   Text
 } from "native-base";
 import styles from "./styles";
-var BUTTONS = [
+const BUTTONS = [
   { text: "Option 0", icon: "american-football", iconColor: "#2c8ef4" },
   { text: "Option 1", icon: "analytics", iconColor: "#f42ced" },
   { text: "Option 2", icon: "aperture", iconColor: "#ea943b" },
   { text: "Delete", icon: "trash", iconColor: "#fa213b" },
   { text: "Cancel", icon: "close", iconColor: "#25de5b" }
 ];
-var DESTRUCTIVE_INDEX = 3;
-var CANCEL_INDEX = 4;
+const DESTRUCTIVE_INDEX = 3;
+const CANCEL_INDEX = 4;
 
-export default class ActionSheetNB extends Component {
-  constructor(props) {
+export interface ActionSheetNBProps extends NavigationScreenConfigProps { }
+export default class ActionSheetNB extends React.Component<ActionSheetNBProps> {
+  constructor(props: ActionSheetNBProps) {
     super(props);
     this.state = {};
   }
@@ -33,7 +35,7 @@ export default class ActionSheetNB extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -42,7 +44,7 @@ export default class ActionSheetNB extends Component {
           </Body>
           <Right />
         </Header>
-        <Content padder>
+        <Content padder={true}>
           <Button
             onPress={() =>
               ActionSheet.show(
@@ -52,7 +54,7 @@ export default class ActionSheetNB extends Component {
                   destructiveButtonIndex: DESTRUCTIVE_INDEX,
                   title: "Select an option"
                 },
-                buttonIndex => {
+                (buttonIndex) => {
                   this.setState({ clicked: BUTTONS[buttonIndex] });
                 }
               )}

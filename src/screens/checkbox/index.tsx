@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,8 +15,17 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class NHCheckbox extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHCheckboxProps extends NavigationScreenConfigProps { }
+interface NHCheckboxState {
+  checkbox1: boolean;
+  checkbox2: boolean;
+  checkbox3: boolean;
+  checkbox4: boolean;
+}
+class NHCheckbox extends React.Component<NHCheckboxProps, NHCheckboxState> {
+  constructor(props: NHCheckboxProps) {
     super(props);
     this.state = {
       checkbox1: true,
@@ -51,7 +60,7 @@ class NHCheckbox extends Component {
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -64,7 +73,7 @@ class NHCheckbox extends Component {
         </Header>
 
         <Content>
-          <ListItem button onPress={() => this.toggleSwitch1()}>
+          <ListItem button={true} onPress={() => this.toggleSwitch1()}>
             <CheckBox
               checked={this.state.checkbox1}
               onPress={() => this.toggleSwitch1()}
@@ -73,7 +82,7 @@ class NHCheckbox extends Component {
               <Text>Lunch Break</Text>
             </Body>
           </ListItem>
-          <ListItem button onPress={() => this.toggleSwitch2()}>
+          <ListItem button={true} onPress={() => this.toggleSwitch2()}>
             <CheckBox
               color="red"
               checked={this.state.checkbox2}
@@ -83,7 +92,7 @@ class NHCheckbox extends Component {
               <Text>Daily Stand Up</Text>
             </Body>
           </ListItem>
-          <ListItem button onPress={() => this.toggleSwitch3()}>
+          <ListItem button={true} onPress={() => this.toggleSwitch3()}>
             <CheckBox
               color="green"
               checked={this.state.checkbox3}
@@ -93,7 +102,7 @@ class NHCheckbox extends Component {
               <Text>Finish list Screen</Text>
             </Body>
           </ListItem>
-          <ListItem button onPress={() => this.toggleSwitch4()}>
+          <ListItem button={true} onPress={() => this.toggleSwitch4()}>
             <CheckBox
               color="#000"
               checked={this.state.checkbox4}

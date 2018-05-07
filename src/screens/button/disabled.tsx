@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { View } from "react-native";
 import {
   Container,
@@ -14,13 +14,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Disabled extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface DisabledProps extends NavigationScreenConfigProps { }
+class Disabled extends React.Component<DisabledProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -32,27 +35,27 @@ class Disabled extends Component {
 
         <Content>
           <View style={{ paddingHorizontal: 20, paddingTop: 20 }}>
-            <Button disabled style={styles.mb15}>
+            <Button disabled={true} style={styles.mb15}>
               <Text>Default</Text>
             </Button>
-            <Button disabled bordered style={styles.mb15}>
+            <Button disabled={true} bordered={true} style={styles.mb15}>
               <Text>Outline</Text>
             </Button>
-            <Button disabled rounded style={styles.mb15}>
+            <Button disabled={true} rounded={true} style={styles.mb15}>
               <Text>Rounded</Text>
             </Button>
-            <Button disabled large style={styles.mb15}>
+            <Button disabled={true} large={true} style={styles.mb15}>
               <Text>Custom</Text>
             </Button>
-            <Button disabled iconRight style={styles.mb15}>
+            <Button disabled={true} iconRight={true} style={styles.mb15}>
               <Text>Icon Button</Text>
               <Icon name="home" />
             </Button>
-            <Button disabled block style={styles.mb15}>
+            <Button disabled={true} block={true} style={styles.mb15}>
               <Text>Block</Text>
             </Button>
           </View>
-          <Button disabled full style={styles.mb15}>
+          <Button disabled={true} full={true} style={styles.mb15}>
             <Text>Full</Text>
           </Button>
         </Content>

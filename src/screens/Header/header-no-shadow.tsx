@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,13 +13,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class HeaderNoShadow extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface HeaderNoShadowProps extends NavigationScreenConfigProps { }
+class HeaderNoShadow extends React.Component<HeaderNoShadowProps> {
   render() {
     return (
       <Container style={styles.container}>
-        <Header noShadow>
+        <Header noShadow={true}>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -27,15 +30,15 @@ class HeaderNoShadow extends Component {
             <Title>Header No Shadow</Title>
           </Body>
           <Right>
-            <Button transparent>
+            <Button transparent={true}>
               <Icon name="menu" />
             </Button>
           </Right>
         </Header>
-        <Content padder>
+        <Content padder={true}>
           <Text>Header with noShadow prop</Text>
         </Content>
-      </Container>
+      </Container >
     );
   }
 }

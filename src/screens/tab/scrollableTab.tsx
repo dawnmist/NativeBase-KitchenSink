@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -18,13 +18,16 @@ import TabThree from "./tabThree";
 import TabFour from "./tabFour";
 import TabFive from "./tabFive";
 
-class BasicTab extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface BasicTabProps extends NavigationScreenConfigProps { }
+class BasicTab extends React.Component<BasicTabProps> {
   render() {
     return (
       <Container>
-        <Header hasTabs>
+        <Header hasTabs={true}>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>

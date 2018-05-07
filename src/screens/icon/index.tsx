@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -34,14 +34,17 @@ const datas = [
   }
 ];
 
-class NHIcon extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHIconProps extends NavigationScreenConfigProps { }
+class NHIcon extends React.Component<NHIconProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -56,9 +59,9 @@ class NHIcon extends Component {
         <Content>
           <List
             dataArray={datas}
-            renderRow={data =>
+            renderRow={(data) =>
               <ListItem
-                button
+                button={true}
                 onPress={() => this.props.navigation.navigate(data.route)}
               >
                 <Left>

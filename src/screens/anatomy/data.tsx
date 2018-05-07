@@ -1,15 +1,15 @@
-import React from "react";
+import * as React from "react";
 import { Image } from "react-native";
 
-var btnsDefault = [{ text: "Button" }];
+const btnsDefault = [{ text: "Button" }];
 
-var btnsTypes = [
+const btnsTypes = [
   { text: "Primary", type: "primary" },
   { text: "Secondary", type: "secondary" },
   { text: "Delete", type: "delete" }
 ];
 
-var rows = [
+const rows = [
   {
     text: "Basic Example",
     right: btnsDefault
@@ -19,8 +19,8 @@ var rows = [
     right: [
       {
         text: "Press Me",
-        onPress: function() {
-          alert("button pressed");
+        onPress() {
+          alert("button={true} pressed");
         },
         type: "primary"
       }
@@ -63,7 +63,7 @@ var rows = [
     autoClose: true
   },
   {
-    text: "Custom button component",
+    text: "Custom button={true} component",
     right: [
       {
         component: (

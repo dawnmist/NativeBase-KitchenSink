@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -61,13 +61,16 @@ const datas = [
   }
 ];
 
-class NHListAvatar extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHListAvatarProps extends NavigationScreenConfigProps { }
+class NHListAvatar extends React.Component<NHListAvatarProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -80,21 +83,21 @@ class NHListAvatar extends Component {
         <Content>
           <List
             dataArray={datas}
-            renderRow={data =>
-              <ListItem avatar>
+            renderRow={(data) =>
+              <ListItem avatar={true}>
                 <Left>
-                  <Thumbnail small source={data.img} />
+                  <Thumbnail small={true} source={data.img} />
                 </Left>
                 <Body>
                   <Text>
                     {data.text}
                   </Text>
-                  <Text numberOfLines={1} note>
+                  <Text numberOfLines={1} note={true}>
                     {data.note}
                   </Text>
                 </Body>
                 <Right>
-                  <Text note>
+                  <Text note={true}>
                     {data.time}
                   </Text>
                 </Right>

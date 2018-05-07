@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,13 +15,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Underline extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface UnderlineProps extends NavigationScreenConfigProps { }
+class Underline extends React.Component<UnderlineProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>

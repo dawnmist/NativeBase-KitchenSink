@@ -1,14 +1,17 @@
 import * as Expo from "expo";
-import React, { Component } from "react";
+import * as React from "react";
 import { StyleProvider } from "native-base";
 
 import App from "../App";
 import getTheme from "../theme/components";
 import variables from "../theme/variables/commonColor";
 
-export default class Setup extends Component {
-  constructor() {
-    super();
+interface SetupState {
+  isReady: boolean;
+}
+export default class Setup extends React.Component<{}, SetupState> {
+  constructor(props: {}) {
+    super(props);
     this.state = {
       isReady: false
     };

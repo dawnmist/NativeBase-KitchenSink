@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Platform } from "react-native";
 import {
   Container,
@@ -22,8 +22,18 @@ import styles from "./styles";
 
 const Item = Picker.Item;
 
-class NHListIcon extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHListIconProps extends NavigationScreenConfigProps { }
+interface NHListIconState {
+  selectedItem?: any;
+  selected1: string;
+  results: {
+    items: Array<any>;
+  };
+}
+class NHListIcon extends React.Component<NHListIconProps, NHListIconState> {
+  constructor(props: NHListIconProps) {
     super(props);
     this.state = {
       selectedItem: undefined,
@@ -43,7 +53,7 @@ class NHListIcon extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -54,11 +64,11 @@ class NHListIcon extends Component {
         </Header>
 
         <Content>
-          <Separator bordered noTopBorder />
-          <ListItem icon>
+          <Separator bordered={true} noTopBorder={true} />
+          <ListItem icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#FF9501" }}>
-                <Icon active name="plane" />
+                <Icon active={true} name="plane" />
               </Button>
             </Left>
             <Body>
@@ -68,10 +78,10 @@ class NHListIcon extends Component {
               <Switch value={false} onTintColor="#50B948" />
             </Right>
           </ListItem>
-          <ListItem icon>
+          <ListItem icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#007AFF" }}>
-                <Icon active name="wifi" />
+                <Icon active={true} name="wifi" />
               </Button>
             </Left>
             <Body>
@@ -79,13 +89,13 @@ class NHListIcon extends Component {
             </Body>
             <Right>
               <Text>GeekyAnts</Text>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
+              {Platform.OS === "ios" && <Icon active={true} name="arrow-forward" />}
             </Right>
           </ListItem>
-          <ListItem icon>
+          <ListItem icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#007AFF" }}>
-                <Icon active name="bluetooth" />
+                <Icon active={true} name="bluetooth" />
               </Button>
             </Left>
             <Body>
@@ -93,26 +103,26 @@ class NHListIcon extends Component {
             </Body>
             <Right>
               <Text>On</Text>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
+              {Platform.OS === "ios" && <Icon active={true} name="arrow-forward" />}
             </Right>
           </ListItem>
-          <ListItem icon>
+          <ListItem icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#4CDA64" }}>
-                <Icon active name="phone-portrait" />
+                <Icon active={true} name="phone-portrait" />
               </Button>
             </Left>
             <Body>
               <Text>Mobile Data</Text>
             </Body>
             <Right>
-              <Radio selected />
+              <Radio selected={true} />
             </Right>
           </ListItem>
-          <ListItem icon last>
+          <ListItem icon={true} last={true}>
             <Left>
               <Button style={{ backgroundColor: "#4CDA64" }}>
-                <Icon active name="link" />
+                <Icon active={true} name="link" />
               </Button>
             </Left>
             <Body>
@@ -120,42 +130,42 @@ class NHListIcon extends Component {
             </Body>
             <Right>
               <Text>Off</Text>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
+              {Platform.OS === "ios" && <Icon active={true} name="arrow-forward" />}
             </Right>
           </ListItem>
 
-          <Separator bordered />
+          <Separator bordered={true} />
 
-          <ListItem icon>
+          <ListItem icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#FD3C2D" }}>
-                <Icon active name="notifications" />
+                <Icon active={true} name="notifications" />
               </Button>
             </Left>
             <Body>
               <Text>Notifications</Text>
             </Body>
             <Right>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
+              {Platform.OS === "ios" && <Icon active={true} name="arrow-forward" />}
             </Right>
           </ListItem>
-          <ListItem icon>
+          <ListItem icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#8F8E93" }}>
-                <Icon active name="switch" />
+                <Icon active={true} name="switch" />
               </Button>
             </Left>
             <Body>
               <Text>Control Center</Text>
             </Body>
             <Right>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
+              {Platform.OS === "ios" && <Icon active={true} name="arrow-forward" />}
             </Right>
           </ListItem>
-          <ListItem icon last>
+          <ListItem icon={true} last={true}>
             <Left>
               <Button style={{ backgroundColor: "#5855D6" }}>
-                <Icon active name="moon" />
+                <Icon active={true} name="moon" />
               </Button>
             </Left>
             <Body>
@@ -165,8 +175,8 @@ class NHListIcon extends Component {
               <Text>Yes</Text>
             </Right>
           </ListItem>
-          <Separator bordered />
-          <ListItem icon>
+          <Separator bordered={true} />
+          <ListItem icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#4CDA64" }}>
                 <Icon name="arrow-dropdown" />
@@ -177,7 +187,7 @@ class NHListIcon extends Component {
             </Body>
             <Right>
               <Picker
-                note
+                note={true}
                 iosHeader="Select Your Sim"
                 iosIcon={<Icon name="ios-arrow-down-outline" />}
                 mode="dropdown"
@@ -189,10 +199,10 @@ class NHListIcon extends Component {
               </Picker>
             </Right>
           </ListItem>
-          <ListItem icon>
+          <ListItem icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#8F8E93" }}>
-                <Icon active name="cog" />
+                <Icon active={true} name="cog" />
               </Button>
             </Left>
             <Body>
@@ -204,17 +214,17 @@ class NHListIcon extends Component {
               </Badge>
             </Right>
           </ListItem>
-          <ListItem last icon>
+          <ListItem last={true} icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#007AFF" }}>
-                <Icon active name="hand" />
+                <Icon active={true} name="hand" />
               </Button>
             </Left>
             <Body>
               <Text>Privacy</Text>
             </Body>
             <Right>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
+              {Platform.OS === "ios" && <Icon active={true} name="arrow-forward" />}
             </Right>
           </ListItem>
         </Content>

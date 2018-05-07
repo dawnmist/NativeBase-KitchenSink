@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -26,13 +26,16 @@ const datas = [
   "Phil Coutinho"
 ];
 
-class NHBasicList extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHBasicListProps extends NavigationScreenConfigProps { }
+class NHBasicList extends React.Component<NHBasicListProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -45,7 +48,7 @@ class NHBasicList extends Component {
         <Content>
           <List
             dataArray={datas}
-            renderRow={data =>
+            renderRow={(data) =>
               <ListItem>
                 <Left>
                   <Text>

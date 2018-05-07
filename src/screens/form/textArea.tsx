@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,13 +13,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class TextArea extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface TextAreaProps extends NavigationScreenConfigProps { }
+class TextArea extends React.Component<TextAreaProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <IconNB name="ios-arrow-back" />
             </Button>
           </Left>
@@ -29,8 +32,8 @@ class TextArea extends Component {
           <Right />
         </Header>
 
-        <Content padder>
-          <Textarea rowSpan={5} bordered placeholder="Textarea" />
+        <Content padder={true}>
+          <Textarea rowSpan={5} bordered={true} placeholder="Textarea" />
         </Content>
       </Container>
     );

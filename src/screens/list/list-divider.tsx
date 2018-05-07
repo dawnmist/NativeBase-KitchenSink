@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -14,13 +14,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class NHListDivider extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHListDividerProps extends NavigationScreenConfigProps { }
+class NHListDivider extends React.Component<NHListDividerProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -31,7 +34,7 @@ class NHListDivider extends Component {
         </Header>
 
         <Content>
-          <ListItem itemDivider>
+          <ListItem itemDivider={true}>
             <Text>A</Text>
           </ListItem>
           <ListItem>
@@ -46,11 +49,11 @@ class NHListDivider extends Component {
           <ListItem>
             <Text>Andy Hertzfeld</Text>
           </ListItem>
-          <ListItem last>
+          <ListItem last={true}>
             <Text>Angana Ghosh</Text>
           </ListItem>
 
-          <ListItem itemDivider>
+          <ListItem itemDivider={true}>
             <Text>B</Text>
           </ListItem>
           <ListItem>
@@ -59,11 +62,11 @@ class NHListDivider extends Component {
           <ListItem>
             <Text>Brian Swetland</Text>
           </ListItem>
-          <ListItem last>
+          <ListItem last={true}>
             <Text>Brittany Kelso</Text>
           </ListItem>
 
-          <ListItem itemDivider>
+          <ListItem itemDivider={true}>
             <Text>C</Text>
           </ListItem>
           <ListItem>
@@ -72,7 +75,7 @@ class NHListDivider extends Component {
           <ListItem>
             <Text>Cendre Urbino</Text>
           </ListItem>
-          <ListItem last>
+          <ListItem last={true}>
             <Text>Claire Barclay</Text>
           </ListItem>
         </Content>

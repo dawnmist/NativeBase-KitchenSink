@@ -1,6 +1,4 @@
-const React = require("react-native");
-
-const { StyleSheet } = React;
+import { StyleSheet } from "react-native";
 
 export default {
   container: {
@@ -13,4 +11,4 @@ export default {
   mb: {
     marginBottom: 15
   }
-};
+} as StyleSheet.NamedStyles<any>;

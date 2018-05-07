@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { FlatList } from "react-native";
 import {
   Container,
@@ -26,7 +26,10 @@ const datas = [
   "Phil Coutinho"
 ];
 
-class NHListItemSelected extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHListItemSelectedProps extends NavigationScreenConfigProps { }
+class NHListItemSelected extends React.Component<NHListItemSelectedProps> {
   state = {
     datas,
     selected: "Simon Mignolet"
@@ -37,7 +40,7 @@ class NHListItemSelected extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -51,8 +54,8 @@ class NHListItemSelected extends Component {
             data={this.state.datas}
             extraData={this.state}
             keyExtractor={(item, index) => String(index)}
-            renderItem={({ item, index }) => {
-              return (
+            renderItem={({ item, index }) =>
+              (
                 <ListItem
                   selected={this.state.selected === item}
                   onPress={() => this.setState({ selected: item })}
@@ -66,8 +69,7 @@ class NHListItemSelected extends Component {
                     <Icon name="arrow-forward" />
                   </Right>
                 </ListItem>
-              );
-            }}
+              )}
           />
         </Content>
       </Container>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -30,8 +30,16 @@ const datas = [
   }
 ];
 
-class NHTab extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHTabProps extends NavigationScreenConfigProps { }
+interface NHTabState {
+  tab1: boolean;
+  tab2: boolean;
+  tab3: boolean;
+}
+class NHTab extends React.Component<NHTabProps, NHTabState> {
+  constructor(props: NHTabProps) {
     super(props);
     this.state = {
       tab1: false,
@@ -63,10 +71,10 @@ class NHTab extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <Header noShadow>
+        <Header noShadow={true}>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -81,9 +89,9 @@ class NHTab extends Component {
         <Content>
           <List
             dataArray={datas}
-            renderRow={data =>
+            renderRow={(data) =>
               <ListItem
-                button
+                button={true}
                 onPress={() => this.props.navigation.navigate(data.route)}
               >
                 <Left>

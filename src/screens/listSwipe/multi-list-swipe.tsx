@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { ListView } from "react-native";
+import * as React from "react";
+import { ListView, ListViewDataSource } from "react-native";
 import {
   Container,
   Header,
@@ -27,8 +27,17 @@ const datas = [
   "Phil Coutinho"
 ];
 
-class MultiListSwipe extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface MultiListSwipeProps extends NavigationScreenConfigProps { }
+interface MultiListSwipeState {
+  basic: boolean;
+  listViewData: Array<string>;
+}
+class MultiListSwipe extends React.Component<MultiListSwipeProps, MultiListSwipeState> {
+  ds: ListViewDataSource;
+
+  constructor(props: MultiListSwipeProps) {
     super(props);
     this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
@@ -36,7 +45,7 @@ class MultiListSwipe extends Component {
       listViewData: datas
     };
   }
-  deleteRow(secId, rowId, rowMap) {
+  deleteRow(secId: string | number, rowId: number, rowMap: { [key: string]: any }) {
     rowMap[`${secId}${rowId}`].props.closeRow();
     const newData = [...this.state.listViewData];
     newData.splice(rowId, 1);
@@ -47,7 +56,7 @@ class MultiListSwipe extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -60,15 +69,15 @@ class MultiListSwipe extends Component {
         <Content>
           <List
             dataSource={this.ds.cloneWithRows(this.state.listViewData)}
-            renderRow={data =>
+            renderRow={(data) =>
               <ListItem style={{ paddingLeft: 20 }}>
                 <Text>
                   {data}
                 </Text>
               </ListItem>}
-            renderLeftHiddenRow={data =>
+            renderLeftHiddenRow={(data) =>
               <Button
-                full
+                full={true}
                 onPress={() => alert(data)}
                 style={{
                   backgroundColor: "#CCC",
@@ -77,20 +86,20 @@ class MultiListSwipe extends Component {
                   justifyContent: "center"
                 }}
               >
-                <Icon active name="information-circle" />
+                <Icon active={true} name="information-circle" />
               </Button>}
             renderRightHiddenRow={(data, secId, rowId, rowMap) =>
               <Button
-                full
-                danger
-                onPress={_ => this.deleteRow(secId, rowId, rowMap)}
+                full={true}
+                danger={true}
+                onPress={(_) => this.deleteRow(secId, rowId as number, rowMap)}
                 style={{
                   flex: 1,
                   alignItems: "center",
                   justifyContent: "center"
                 }}
               >
-                <Icon active name="trash" />
+                <Icon active={true} name="trash" />
               </Button>}
             leftOpenValue={75}
             rightOpenValue={-75}

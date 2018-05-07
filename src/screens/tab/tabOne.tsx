@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Content, Card, CardItem, Text, Body } from "native-base";
 
-export default class TabOne extends Component {
+export default class TabOne extends React.Component<{}> {
   render() {
     return (
-      <Content padder>
+      <Content padder={true}>
         <Card>
           <CardItem>
             <Body>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 
 import {
   Container,
@@ -18,13 +18,16 @@ import {
 
 import styles from "./styles";
 
-class PlatformSpecificIcon extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface PlatformSpecificIconProps extends NavigationScreenConfigProps { }
+class PlatformSpecificIcon extends React.Component<PlatformSpecificIconProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -34,7 +37,7 @@ class PlatformSpecificIcon extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Grid>
             <Row>
               <Col style={styles.col}>

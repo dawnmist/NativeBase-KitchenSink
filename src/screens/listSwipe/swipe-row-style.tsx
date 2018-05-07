@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,13 +15,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class SwipeRowCustomStyle extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface SwipeRowCustomStyleProps extends NavigationScreenConfigProps { }
+class SwipeRowCustomStyle extends React.Component<SwipeRowCustomStyleProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -37,22 +40,19 @@ class SwipeRowCustomStyle extends Component {
             leftOpenValue={75}
             rightOpenValue={-75}
             left={
-              <Button success onPress={() => alert("Add")}>
-                <Icon active name="add" style={{ color: "#FFF" }} />
-              </Button>
-            }
+              <Button success={true} onPress={() => alert("Add")}>
+                <Icon active={true} name="add" style={{ color: "#FFF" }} />
+              </Button>}
             right={
-              <Button danger onPress={() => alert("Trash")}>
-                <Icon active name="trash" />
-              </Button>
-            }
+              <Button danger={true} onPress={() => alert("Trash")}>
+                <Icon active={true} name="trash" />
+              </Button>}
             body={
               <View style={{ paddingLeft: 20 }}>
                 <Text style={{ color: "#FFF" }}>
                   Swipe me to left and right
                 </Text>
-              </View>
-            }
+              </View>}
           />
         </Content>
       </Container>

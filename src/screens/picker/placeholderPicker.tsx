@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -16,8 +16,14 @@ import styles from "./styles";
 
 const Item = Picker.Item;
 
-class RegularPicker extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface RegularPickerProps extends NavigationScreenConfigProps { }
+interface RegularPickerState {
+  selected2?: string;
+}
+class RegularPicker extends React.Component<RegularPickerProps, RegularPickerState> {
+  constructor(props: RegularPickerProps) {
     super(props);
     this.state = {
       selected2: undefined
@@ -33,7 +39,7 @@ class RegularPicker extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>

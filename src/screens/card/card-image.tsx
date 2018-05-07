@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Image } from "react-native";
 import {
   Container,
@@ -20,13 +20,16 @@ import styles from "./styles";
 const logo = require("../../../assets/logo.png");
 const cardImage = require("../../../assets/drawer-cover.png");
 
-class NHCardImage extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHCardImageProps extends NavigationScreenConfigProps { }
+class NHCardImage extends React.Component<NHCardImageProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -36,23 +39,23 @@ class NHCardImage extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Card style={styles.mb}>
             <CardItem>
               <Left>
                 <Thumbnail source={logo} />
                 <Body>
                   <Text>NativeBase</Text>
-                  <Text note>GeekyAnts</Text>
+                  <Text note={true}>GeekyAnts</Text>
                 </Body>
               </Left>
             </CardItem>
 
-            <CardItem cardBody>
+            <CardItem cardBody={true}>
               <Image
                 style={{
                   resizeMode: "cover",
-                  width: null,
+                  width: undefined,
                   height: 200,
                   flex: 1
                 }}
@@ -62,14 +65,14 @@ class NHCardImage extends Component {
 
             <CardItem style={{ paddingVertical: 0 }}>
               <Left>
-                <Button transparent>
-                  <Icon active name="thumbs-up" />
+                <Button transparent={true}>
+                  <Icon active={true} name="thumbs-up" />
                   <Text>4923 Likes</Text>
                 </Button>
               </Left>
               <Body>
-                <Button transparent>
-                  <Icon active name="chatbubbles" />
+                <Button transparent={true}>
+                  <Icon active={true} name="chatbubbles" />
                   <Text>89 Comments</Text>
                 </Button>
               </Body>

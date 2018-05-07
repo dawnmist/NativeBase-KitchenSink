@@ -1,8 +1,7 @@
+import { NativeBase } from "native-base";
 import variable from "./../variables/platform";
 
-export default (variables = variable) => {
-  const platform = variables.platform;
-
+export default (variables: NativeBase.Variables = variable) => {
   const theme = {
     "NativeBase.Item": {
       ".fixedLabel": {

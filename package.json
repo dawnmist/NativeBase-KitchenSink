@@ -6,6 +6,7 @@
     "@types/color": "^3.0.0",
     "@types/expo": "^26.0.2",
     "@types/lodash": "^4.14.108",
+    "@types/jest": "^22.2.2",
     "@types/react": "^16.3.13",
     "@types/react-native": "^0.55.12",
     "@types/react-native-drawer": "^2.5.0",
@@ -22,35 +23,59 @@
     "flow-bin": "0.52.0",
     "flow-typed": "2.1.5",
     "husky": "0.14.3",
-    "jest": "20.0.4",
-    "jest-expo": "25.0.0",
+    "ts-jest": "^22.4.2",
+    "jest-expo": "26.0.0",
+    "react-native-typescript-transformer": "^1.2.3",
+    "react-test-renderer": "16.3.0-alpha.1",
     "prettier": "1.5.3",
-    "react-native-scripts": "1.11.1",
-    "react-test-renderer": "16.2.0",
+    "react-native-scripts-ts": "~1.13.0",
     "tslib": "^1.9.0",
     "tslint": "^5.10.0",
     "tslint-react": "^3.5.1",
     "typescript": "^2.8.3"
   },
-  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "main": "./node_modules/react-native-scripts-ts/build/bin/crna-entry.js",
   "scripts": {
-    "start": "react-native-scripts start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
+    "start": "react-native-scripts-ts start",
+    "eject": "react-native-scripts-ts eject",
+    "android": "react-native-scripts-ts android",
+    "ios": "react-native-scripts-ts ios",
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
-    "preset": "jest-expo"
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "preset": "jest-expo",
+    "testMatch": [
+      "**/__tests__/**/*.[tj]s?(x)",
+      "**/?(*.)(spec|test).[tj]s?(x)"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    }
   },
   "dependencies": {
     "color": "^3.0.0",
-    "expo": "25.0.0",
+    "expo": "26.0.0",
     "lodash": "^4.17.10",
     "moment": "2.13.0",
-    "native-base": "2.4.1",
-    "react": "16.2.0",
-    "react-native": "0.52.0",
+    "native-base": "2.4.3",
+    "react": "16.3.0-alpha.1",
+    "react-native": "0.54.0",
     "react-navigation": "1.5.0"
+  },
+  "resolutions": {
+    "native-base": "file:///home/dawnmist/src/NativeBase"
   }
 }

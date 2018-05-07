@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -37,14 +37,17 @@ const datas = [
   }
 ];
 
-class NHLayout extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHLayoutProps extends NavigationScreenConfigProps { }
+class NHLayout extends React.Component<NHLayoutProps> {
   render() {
     return (
       <Container style={{ backgroundColor: "#FBFAFA" }}>
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -59,9 +62,9 @@ class NHLayout extends Component {
         <Content>
           <List
             dataArray={datas}
-            renderRow={data =>
+            renderRow={(data) =>
               <ListItem
-                button
+                button={true}
                 onPress={() => this.props.navigation.navigate(data.route)}
               >
                 <Left>

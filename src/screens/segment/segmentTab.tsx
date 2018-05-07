@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,8 +13,14 @@ import {
   Segment
 } from "native-base";
 
-class SegmentNB extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface SegmentNBProps extends NavigationScreenConfigProps { }
+interface SegmentNBState {
+  seg: number;
+}
+class SegmentNB extends React.Component<SegmentNBProps, SegmentNBState> {
+  constructor(props: SegmentNBProps) {
     super(props);
     this.state = {
       seg: 2
@@ -23,9 +29,9 @@ class SegmentNB extends Component {
   render() {
     return (
       <Container>
-        <Header hasTabs>
+        <Header hasTabs={true}>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -33,14 +39,14 @@ class SegmentNB extends Component {
             <Title>Segments</Title>
           </Body>
           <Right>
-            <Button transparent>
+            <Button transparent={true}>
               <Icon name="search" />
             </Button>
           </Right>
         </Header>
         <Segment>
           <Button
-            first
+            first={true}
             active={this.state.seg === 1 ? true : false}
             onPress={() => this.setState({ seg: 1 })}
           >
@@ -53,7 +59,7 @@ class SegmentNB extends Component {
             <Text>Kittens</Text>
           </Button>
           <Button
-            last
+            last={true}
             active={this.state.seg === 3 ? true : false}
             onPress={() => this.setState({ seg: 3 })}
           >
@@ -61,7 +67,7 @@ class SegmentNB extends Component {
           </Button>
         </Segment>
 
-        <Content padder>
+        <Content padder={true}>
           {this.state.seg === 1 && <Text>Puppies Selected</Text>}
           {this.state.seg === 2 && <Text>Kittens Selected</Text>}
           {this.state.seg === 3 && <Text>Cubs Selected</Text>}

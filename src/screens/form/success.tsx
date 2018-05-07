@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -16,13 +16,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Success extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface SuccessProps extends NavigationScreenConfigProps { }
+class Success extends React.Component<SuccessProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -32,9 +35,9 @@ class Success extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Form>
-            <Item success>
+            <Item success={true}>
               <Input placeholder="Textbox with Success Input" />
               <IconNB name="ios-checkmark-circle" />
             </Item>

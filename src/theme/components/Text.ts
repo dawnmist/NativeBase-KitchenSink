@@ -1,6 +1,7 @@
+import { NativeBase } from "native-base";
 import variable from "./../variables/platform";
 
-export default (variables = variable) => {
+export default (variables: NativeBase.Variables = variable) => {
   const textTheme = {
     fontSize: variables.DefaultFontSize - 1,
     fontFamily: variables.fontFamily,

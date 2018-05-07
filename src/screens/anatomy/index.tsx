@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,15 +15,17 @@ import {
 } from "native-base";
 
 import styles from "./styles";
+import { NavigationScreenConfigProps } from "react-navigation";
 
-class Anatomy extends Component {
+export interface AnatomyProps extends NavigationScreenConfigProps { }
+class Anatomy extends React.Component<AnatomyProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="ios-menu" />
@@ -35,13 +37,13 @@ class Anatomy extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Text>Content goes here</Text>
         </Content>
 
         <Footer>
           <FooterTab>
-            <Button active full>
+            <Button active={true} full={true}>
               <Text>Footer</Text>
             </Button>
           </FooterTab>

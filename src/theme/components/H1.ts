@@ -1,10 +1,11 @@
+import { NativeBase } from "native-base";
 import variable from "./../variables/platform";
 
-export default (variables = variable) => {
+export default (variables: NativeBase.Variables = variable) => {
   const h1Theme = {
     color: variables.textColor,
     fontSize: variables.fontSizeH1,
-    lineHeight: variables.lineHeightH1,
+    lineHeight: variables.lineHeightH1
   };
 
   return h1Theme;

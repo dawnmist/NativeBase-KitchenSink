@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -14,13 +14,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class NHListHeader extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHListHeaderProps extends NavigationScreenConfigProps { }
+class NHListHeader extends React.Component<NHListHeaderProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -31,7 +34,7 @@ class NHListHeader extends Component {
         </Header>
 
         <Content>
-          <ListItem itemHeader first>
+          <ListItem itemHeader={true} first={true}>
             <Text>COMEDY</Text>
           </ListItem>
           <ListItem>
@@ -43,11 +46,11 @@ class NHListHeader extends Component {
           <ListItem>
             <Text>Wedding Crashers</Text>
           </ListItem>
-          <ListItem last>
+          <ListItem last={true}>
             <Text>Cop Out</Text>
           </ListItem>
 
-          <ListItem itemHeader>
+          <ListItem itemHeader={true}>
             <Text>HORROR</Text>
           </ListItem>
           <ListItem>
@@ -56,11 +59,11 @@ class NHListHeader extends Component {
           <ListItem>
             <Text>Residential Evil</Text>
           </ListItem>
-          <ListItem last>
+          <ListItem last={true}>
             <Text>Conjuring</Text>
           </ListItem>
 
-          <ListItem itemHeader>
+          <ListItem itemHeader={true}>
             <Text>ACTION</Text>
           </ListItem>
           <ListItem>
@@ -69,7 +72,7 @@ class NHListHeader extends Component {
           <ListItem>
             <Text>Fast And Furious</Text>
           </ListItem>
-          <ListItem last>
+          <ListItem last={true}>
             <Text>Top Gun</Text>
           </ListItem>
         </Content>

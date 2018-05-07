@@ -1,9 +1,10 @@
+import { NativeBase } from "native-base";
 import { Platform, PixelRatio } from "react-native";
 
 import pickerTheme from "./Picker";
 import variable from "./../variables/platform";
 
-export default (variables = variable) => {
+export default (variables: NativeBase.Variables = variable) => {
   const platform = variables.platform;
   const selectedStyle = {
     "NativeBase.Text": {

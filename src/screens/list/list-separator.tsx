@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,13 +15,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class NHListSeparator extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHListSeparatorProps extends NavigationScreenConfigProps { }
+class NHListSeparator extends React.Component<NHListSeparatorProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -32,7 +35,7 @@ class NHListSeparator extends Component {
         </Header>
 
         <Content>
-          <Separator bordered>
+          <Separator bordered={true}>
             <Text>MIDFIELD</Text>
           </Separator>
           <ListItem>
@@ -41,11 +44,11 @@ class NHListSeparator extends Component {
           <ListItem>
             <Text>Urbino Cendre</Text>
           </ListItem>
-          <ListItem last>
+          <ListItem last={true}>
             <Text>Lee Allen</Text>
           </ListItem>
 
-          <Separator bordered>
+          <Separator bordered={true}>
             <Text>MIDFIELD</Text>
           </Separator>
           <ListItem>
@@ -54,7 +57,7 @@ class NHListSeparator extends Component {
           <ListItem>
             <Text>Urbino Cendre</Text>
           </ListItem>
-          <ListItem last>
+          <ListItem last={true}>
             <Text>Lee Allen</Text>
           </ListItem>
         </Content>

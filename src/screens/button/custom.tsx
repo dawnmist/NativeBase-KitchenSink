@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,13 +13,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Custom extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface CustomProps extends NavigationScreenConfigProps { }
+class Custom extends React.Component<CustomProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -29,14 +32,14 @@ class Custom extends Component {
           <Right />
         </Header>
 
-        <Content padder style={{ padding: 20 }}>
-          <Button small style={styles.mb15}>
+        <Content padder={true}>
+          <Button small={true} style={styles.mb15}>
             <Text>Default Small</Text>
           </Button>
-          <Button success style={styles.mb15}>
+          <Button success={true} style={styles.mb15}>
             <Text>Success Default</Text>
           </Button>
-          <Button large dark style={styles.mb15}>
+          <Button large={true} dark={true} style={styles.mb15}>
             <Text>Dark Large</Text>
           </Button>
         </Content>

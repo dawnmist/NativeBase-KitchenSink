@@ -1,11 +1,12 @@
-import variable from './../variables/platform';
+import { NativeBase } from "native-base";
+import variable from "./../variables/platform";
 
-export default (variables = variable) => {
-	const bodyTheme = {
-		flex: 1,
-		alignItems: 'center',
-		alignSelf: 'center',
-	};
+export default (variables: NativeBase.Variables = variable) => {
+  const bodyTheme = {
+    flex: 1,
+    alignItems: "center",
+    alignSelf: "center"
+  };
 
-	return bodyTheme;
+  return bodyTheme;
 };

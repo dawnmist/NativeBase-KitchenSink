@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { View } from "react-native";
 import {
   Container,
@@ -14,13 +14,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class IconBtn extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface IconBtnProps extends NavigationScreenConfigProps { }
+class IconBtn extends React.Component<IconBtnProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -30,111 +33,111 @@ class IconBtn extends Component {
           <Right />
         </Header>
 
-        <Content padder style={{ padding: 20 }}>
+        <Content padder={true}>
           <View
             style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
-            <Button iconLeft light style={styles.mb15}>
-              <Icon active name="arrow-back" />
+            <Button iconLeft={true} light={true} style={styles.mb15}>
+              <Icon active={true} name="arrow-back" />
               <Text>Back</Text>
             </Button>
-            <Button light iconRight style={styles.mb15}>
+            <Button light={true} iconRight={true} style={styles.mb15}>
               <Text>Next</Text>
-              <Icon active name="arrow-forward" />
+              <Icon active={true} name="arrow-forward" />
             </Button>
-            <Button light style={styles.mb15}>
-              <Icon active name="arrow-down" />
+            <Button light={true} style={styles.mb15}>
+              <Icon active={true} name="arrow-down" />
             </Button>
-            <Button light style={styles.mb15}>
-              <Icon active name="arrow-up" />
+            <Button light={true} style={styles.mb15}>
+              <Icon active={true} name="arrow-up" />
             </Button>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Button iconLeft style={styles.mb15}>
-              <Icon active name="home" />
+            <Button iconLeft={true} style={styles.mb15}>
+              <Icon active={true} name="home" />
               <Text>Home</Text>
             </Button>
             <Button
-              iconLeft
-              bordered
+              iconLeft={true}
+              bordered={true}
               style={{ marginBottom: 20, marginLeft: 10 }}
             >
-              <Icon active name="briefcase" />
+              <Icon active={true} name="briefcase" />
               <Text>Work</Text>
             </Button>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Button iconLeft success style={styles.mb15}>
-              <Icon active name="people" />
+            <Button iconLeft={true} success={true} style={styles.mb15}>
+              <Icon active={true} name="people" />
               <Text>People</Text>
             </Button>
             <Button
-              iconLeft
-              success
-              bordered
+              iconLeft={true}
+              success={true}
+              bordered={true}
               style={{ marginBottom: 20, marginLeft: 10 }}
             >
-              <Icon active name="paw" />
+              <Icon active={true} name="paw" />
               <Text>Animals</Text>
             </Button>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Button iconLeft danger style={styles.mb15}>
-              <Icon active name="close" />
+            <Button iconLeft={true} danger={true} style={styles.mb15}>
+              <Icon active={true} name="close" />
               <Text>Trash</Text>
             </Button>
             <Button
-              danger
-              bordered
+              danger={true}
+              bordered={true}
               style={{ marginBottom: 20, marginLeft: 10 }}
             >
-              <Icon active name="trash" />
+              <Icon active={true} name="trash" />
             </Button>
             <Button
-              danger
-              transparent
+              danger={true}
+              transparent={true}
               style={{ marginBottom: 20, marginLeft: 10 }}
             >
-              <Icon active name="trash" />
+              <Icon active={true} name="trash" />
             </Button>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Button iconLeft warning style={styles.mb15}>
-              <Icon active name="warning" />
+            <Button iconLeft={true} warning={true} style={styles.mb15}>
+              <Icon active={true} name="warning" />
               <Text>Dont</Text>
             </Button>
             <Button
-              warning
-              bordered
+              warning={true}
+              bordered={true}
               style={{ marginBottom: 20, marginLeft: 10 }}
             >
-              <Icon active name="warning" />
+              <Icon active={true} name="warning" />
             </Button>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Button iconLeft info style={styles.mb15}>
+            <Button iconLeft={true} info={true} style={styles.mb15}>
               <Icon name="alert" />
               <Text>Help</Text>
             </Button>
-            <Button info style={{ marginBottom: 20, marginLeft: 10 }}>
+            <Button info={true} style={{ marginBottom: 20, marginLeft: 10 }}>
               <Icon name="alert" />
             </Button>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Button iconLeft dark style={styles.mb15}>
-              <Icon active name="cog" />
+            <Button iconLeft={true} dark={true} style={styles.mb15}>
+              <Icon active={true} name="cog" />
               <Text>Settings</Text>
             </Button>
             <Button
-              dark
-              transparent
+              dark={true}
+              transparent={true}
               style={{ marginBottom: 20, marginLeft: 10 }}
             >
-              <Icon active name="cog" />
+              <Icon active={true} name="cog" />
             </Button>
           </View>
-          <Button iconLeft transparent style={styles.mb15}>
-            <Icon active name="beer" />
+          <Button iconLeft={true} transparent={true} style={styles.mb15}>
+            <Icon active={true} name="beer" />
             <Text>Pub</Text>
           </Button>
         </Content>

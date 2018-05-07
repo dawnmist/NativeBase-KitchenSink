@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Image, Dimensions } from "react-native";
 import {
   Container,
@@ -21,13 +21,16 @@ const deviceWidth = Dimensions.get("window").width;
 const logo = require("../../../assets/logo.png");
 const cardImage = require("../../../assets/drawer-cover.png");
 
-class NHCardShowcase extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHCardShowcaseProps extends NavigationScreenConfigProps { }
+class NHCardShowcase extends React.Component<NHCardShowcaseProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -37,14 +40,14 @@ class NHCardShowcase extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Card style={styles.mb}>
-            <CardItem bordered>
+            <CardItem bordered={true}>
               <Left>
                 <Thumbnail source={logo} />
                 <Body>
                   <Text>NativeBase</Text>
-                  <Text note>April 15, 2016</Text>
+                  <Text note={true}>April 15, 2016</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -72,7 +75,7 @@ class NHCardShowcase extends Component {
             </CardItem>
             <CardItem style={{ paddingVertical: 0 }}>
               <Left>
-                <Button transparent>
+                <Button transparent={true}>
                   <Icon name="logo-github" />
                   <Text>4,923 stars</Text>
                 </Button>

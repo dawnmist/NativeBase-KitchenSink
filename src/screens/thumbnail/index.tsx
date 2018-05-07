@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -18,14 +18,17 @@ import styles from "./styles";
 const logo = require("../../../assets/splashscreen.png");
 const cover = require("../../../assets/web-cover1.jpg");
 
-class NHThumbnail extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHThumbnailProps extends NavigationScreenConfigProps { }
+class NHThumbnail extends React.Component<NHThumbnailProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -37,17 +40,17 @@ class NHThumbnail extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <View style={{ flex: 1, alignItems: "center" }}>
             <Text style={styles.mb10}>Square Thumbnail</Text>
-            <Thumbnail square small source={logo} style={styles.mb10} />
-            <Thumbnail square source={logo} style={styles.mb10} />
-            <Thumbnail square large source={logo} style={styles.mb35} />
+            <Thumbnail square={true} small={true} source={logo} style={styles.mb10} />
+            <Thumbnail square={true} source={logo} style={styles.mb10} />
+            <Thumbnail square={true} large={true} source={logo} style={styles.mb35} />
 
             <Text style={styles.mb10}>Circular Thumbnail</Text>
-            <Thumbnail small source={cover} style={styles.mb10} />
+            <Thumbnail small={true} source={cover} style={styles.mb10} />
             <Thumbnail source={cover} style={styles.mb10} />
-            <Thumbnail large source={cover} />
+            <Thumbnail large={true} source={cover} />
           </View>
         </Content>
       </Container>

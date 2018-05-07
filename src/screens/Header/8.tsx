@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,7 +13,10 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Header8 extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface Header8Props extends NavigationScreenConfigProps { }
+class Header8 extends React.Component<Header8Props> {
   render() {
     return (
       <Container style={styles.container}>
@@ -23,7 +26,7 @@ class Header8 extends Component {
           iosBarStyle="light-content"
         >
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" style={{ color: "#FFF" }} />
             </Button>
           </Left>
@@ -33,7 +36,7 @@ class Header8 extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Text>Header with Custom background color</Text>
         </Content>
       </Container>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -14,8 +14,14 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class ToastText extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface ToastTextProps extends NavigationScreenConfigProps { }
+interface ToastTextState {
+  showToast: boolean;
+}
+class ToastText extends React.Component<ToastTextProps, ToastTextState> {
+  constructor(props: ToastTextProps) {
     super(props);
     this.state = {
       showToast: false
@@ -26,7 +32,7 @@ class ToastText extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -36,7 +42,7 @@ class ToastText extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Button
             onPress={() =>
               Toast.show({

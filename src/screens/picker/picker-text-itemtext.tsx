@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -16,8 +16,14 @@ import styles from "./styles";
 
 const Item = Picker.Item;
 
-class PickerTextItemText extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface PickerTextItemTextProps extends NavigationScreenConfigProps { }
+interface PickerTextItemTextState {
+  selected2?: string;
+}
+class PickerTextItemText extends React.Component<PickerTextItemTextProps, PickerTextItemTextState> {
+  constructor(props: PickerTextItemTextProps) {
     super(props);
     this.state = {
       selected2: undefined
@@ -33,7 +39,7 @@ class PickerTextItemText extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>

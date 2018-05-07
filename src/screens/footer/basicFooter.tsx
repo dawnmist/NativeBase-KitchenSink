@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,8 +15,17 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Basic extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface BasicProps extends NavigationScreenConfigProps { }
+interface BasicState {
+  tab1: boolean;
+  tab2: boolean;
+  tab3: boolean;
+  tab4: boolean;
+}
+class Basic extends React.Component<BasicProps, BasicState> {
+  constructor(props: BasicProps) {
     super(props);
     this.state = {
       tab1: false,
@@ -62,7 +71,7 @@ class Basic extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -72,7 +81,7 @@ class Basic extends Component {
           <Right />
         </Header>
 
-        <Content padder />
+        <Content padder={true} />
 
         <Footer>
           <FooterTab>

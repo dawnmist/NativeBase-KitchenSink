@@ -1,12 +1,11 @@
-const React = require("react-native");
-const { Dimensions, Platform } = React;
+import { Dimensions, Platform, StyleSheet } from "react-native";
 const deviceHeight = Dimensions.get("window").height;
 
 export default {
   imageContainer: {
     flex: 1,
-    width: null,
-    height: null
+    width: undefined,
+    height: undefined
   },
   logoContainer: {
     flex: 1,
@@ -25,4 +24,4 @@ export default {
     bottom: 6,
     marginTop: 5
   }
-};
+} as StyleSheet.NamedStyles<any>;

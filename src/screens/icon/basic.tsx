@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { View } from "react-native";
 
 import {
@@ -15,13 +15,16 @@ import {
 
 import styles from "./styles";
 
-class BasicIcon extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface BasicIconProps extends NavigationScreenConfigProps { }
+class BasicIcon extends React.Component<BasicIconProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -31,14 +34,14 @@ class BasicIcon extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <View style={styles.iconContainer}>
             <Icon
               name="logo-apple"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="pizza"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -47,12 +50,12 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="beer"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="bicycle"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -61,7 +64,7 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="cloud-circle"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -74,7 +77,7 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="pulse"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -83,17 +86,17 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="mic-off"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="film"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="flame"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -102,7 +105,7 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="paper-plane"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -119,12 +122,12 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="cloudy-night"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="partly-sunny"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -133,7 +136,7 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="rose"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -142,12 +145,12 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="shuffle"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="game-controller-a"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -156,12 +159,12 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="microphone"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="keypad"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -174,7 +177,7 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="mic-off"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -183,7 +186,7 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="medkit"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -192,32 +195,32 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="star-half"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="refresh"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="train"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="musical-notes"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="wine"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="nutrition"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -230,17 +233,17 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="settings"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="chatbubbles"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="chatboxes"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -257,12 +260,12 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="calculator"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="rainy"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -279,12 +282,12 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="body"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="lock"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -293,7 +296,7 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="key"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -302,7 +305,7 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="skip-forward"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -319,7 +322,7 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="stopwatch"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -328,42 +331,42 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="archive"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="bookmark"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="clipboard"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="happy"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="share"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="bluetooth"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="search"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="wifi"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
@@ -372,17 +375,17 @@ class BasicIcon extends Component {
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="trash"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="images"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />
             <Icon
-              active
+              active={true}
               name="attach"
               style={{ width: 45, height: 45, justifyContent: "center" }}
             />

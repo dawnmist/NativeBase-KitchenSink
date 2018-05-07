@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -14,13 +14,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Header7 extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface Header7Props extends NavigationScreenConfigProps { }
+class Header7 extends React.Component<Header7Props> {
   render() {
     return (
       <Container style={styles.container}>
-        <Header hasSubtitle>
+        <Header hasSubtitle={true}>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -31,7 +34,7 @@ class Header7 extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Text>Header with Title & Subtitle</Text>
         </Content>
       </Container>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,13 +13,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Transparent extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface TransparentProps extends NavigationScreenConfigProps { }
+class Transparent extends React.Component<TransparentProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -29,26 +32,26 @@ class Transparent extends Component {
           <Right />
         </Header>
 
-        <Content padder style={{ backgroundColor: "#fff", padding: 20 }}>
-          <Button transparent light style={styles.mb15}>
+        <Content padder={true} style={{ backgroundColor: "#fff" }}>
+          <Button transparent={true} light={true} style={styles.mb15}>
             <Text>Light</Text>
           </Button>
-          <Button transparent info style={styles.mb15}>
+          <Button transparent={true} info={true} style={styles.mb15}>
             <Text>Info</Text>
           </Button>
-          <Button transparent style={styles.mb15}>
+          <Button transparent={true} style={styles.mb15}>
             <Text>Primary</Text>
           </Button>
-          <Button transparent success style={styles.mb15}>
+          <Button transparent={true} success={true} style={styles.mb15}>
             <Text>Success</Text>
           </Button>
-          <Button transparent warning style={styles.mb15}>
+          <Button transparent={true} warning={true} style={styles.mb15}>
             <Text>Warning</Text>
           </Button>
-          <Button transparent danger style={styles.mb15}>
+          <Button transparent={true} danger={true} style={styles.mb15}>
             <Text>Danger</Text>
           </Button>
-          <Button transparent dark style={styles.mb15}>
+          <Button transparent={true} dark={true} style={styles.mb15}>
             <Text>Dark</Text>
           </Button>
         </Content>

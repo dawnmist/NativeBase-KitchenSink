@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,13 +15,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class NHCardItemBordered extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHCardItemBorderedProps extends NavigationScreenConfigProps { }
+class NHCardItemBordered extends React.Component<NHCardItemBorderedProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -31,12 +34,12 @@ class NHCardItemBordered extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Card style={styles.mb}>
-            <CardItem header bordered>
+            <CardItem header={true} bordered={true}>
               <Text>NativeBase</Text>
             </CardItem>
-            <CardItem bordered>
+            <CardItem bordered={true}>
               <Body>
                 <Text>
                   NativeBase is a free and open source framework that enable
@@ -45,7 +48,7 @@ class NHCardItemBordered extends Component {
                 </Text>
               </Body>
             </CardItem>
-            <CardItem bordered>
+            <CardItem bordered={true}>
               <Body>
                 <Text>
                   NativeBase builds a layer on top of React Native that provides
@@ -54,7 +57,7 @@ class NHCardItemBordered extends Component {
                 </Text>
               </Body>
             </CardItem>
-            <CardItem bordered>
+            <CardItem bordered={true}>
               <Body>
                 <Text>
                   Get on the mobile fast track with NativeBase, the
@@ -63,7 +66,7 @@ class NHCardItemBordered extends Component {
                 </Text>
               </Body>
             </CardItem>
-            <CardItem footer bordered>
+            <CardItem footer={true} bordered={true}>
               <Text>GeekyAnts</Text>
             </CardItem>
           </Card>

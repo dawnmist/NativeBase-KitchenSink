@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -17,13 +17,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Stacked extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface StackedProps extends NavigationScreenConfigProps { }
+class Stacked extends React.Component<StackedProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -35,16 +38,16 @@ class Stacked extends Component {
 
         <Content>
           <Form>
-            <Item stackedLabel>
+            <Item stackedLabel={true}>
               <Label>Username</Label>
               <Input />
             </Item>
-            <Item stackedLabel last>
+            <Item stackedLabel={true} last={true}>
               <Label>Password</Label>
-              <Input secureTextEntry />
+              <Input secureTextEntry={true} />
             </Item>
           </Form>
-          <Button block style={{ margin: 15, marginTop: 50 }}>
+          <Button block={true} style={{ margin: 15, marginTop: 50 }}>
             <Text>Sign In</Text>
           </Button>
         </Content>

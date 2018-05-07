@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Image, View } from "react-native";
 import {
   Container,
@@ -46,13 +46,16 @@ const cards = [
   }
 ];
 
-class SimpleDeck extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface SimpleDeckProps extends NavigationScreenConfigProps { }
+class SimpleDeck extends React.Component<SimpleDeckProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -70,7 +73,7 @@ class SimpleDeck extends Component {
               <View>
                 <Text>Over</Text>
               </View>}
-            renderItem={item =>
+            renderItem={(item) =>
               <Card style={{ elevation: 3 }}>
                 <CardItem>
                   <Left>
@@ -79,15 +82,15 @@ class SimpleDeck extends Component {
                       <Text>
                         {item.text}
                       </Text>
-                      <Text note>NativeBase</Text>
+                      <Text note={true}>NativeBase</Text>
                     </Body>
                   </Left>
                 </CardItem>
-                <CardItem cardBody>
+                <CardItem cardBody={true}>
                   <Image
                     style={{
                       resizeMode: "cover",
-                      width: null,
+                      width: undefined,
                       flex: 1,
                       height: 300
                     }}

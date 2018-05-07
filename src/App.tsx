@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Root } from "native-base";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 
@@ -154,7 +154,7 @@ const Drawer = DrawerNavigator(
     contentOptions: {
       activeTintColor: "#e91e63"
     },
-    contentComponent: props => <SideBar {...props} />
+    contentComponent: (props) => <SideBar {...props} />
   }
 );
 
@@ -275,7 +275,8 @@ const AppNavigator = StackNavigator(
   }
 );
 
-export default () =>
+export default () => (
   <Root>
     <AppNavigator />
-  </Root>;
+  </Root>
+);

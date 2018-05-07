@@ -1,31 +1,27 @@
 {
   "compilerOptions": {
-    "allowJs": false,
-    "alwaysStrict": true,
-    "baseUrl": ".",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react-native",
-    "importHelpers": true,
-    "lib": ["dom", "es2015", "es2016", "es2017"],
+    "target": "es5",
     "module": "es2015",
+    "outDir": "build/dist",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "jsx": "react-native",
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016"
+    ],
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "noEmitHelpers": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "outDir": "build/dist",
-    "paths": {
-      "src/*": ["src/*"]
-    },
-    "preserveConstEnums": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
+    "importHelpers": true,
     "strict": true,
+    "noImplicitReturns": true,
+    "strictFunctionTypes": true,
     "strictNullChecks": true,
-    "target": "es5"
-  },
-  "include": ["src/**/*"]
+    "strictPropertyInitialization": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true
+  }
 }

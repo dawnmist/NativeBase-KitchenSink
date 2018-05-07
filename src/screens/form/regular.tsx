@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,13 +15,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Regular extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface RegularProps extends NavigationScreenConfigProps { }
+class Regular extends React.Component<RegularProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -31,9 +34,9 @@ class Regular extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Form>
-            <Item regular>
+            <Item regular={true}>
               <Input placeholder="Regular Textbox" />
             </Item>
           </Form>

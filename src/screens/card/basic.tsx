@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,13 +15,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Basic extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface BasicProps extends NavigationScreenConfigProps { }
+class Basic extends React.Component<BasicProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -31,7 +34,7 @@ class Basic extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Card style={styles.mb}>
             <CardItem>
               <Body>

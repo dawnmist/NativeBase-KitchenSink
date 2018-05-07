@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -17,8 +17,18 @@ import styles from "./styles";
 
 const Item = Picker.Item;
 
-class NHPicker extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHPickerProps extends NavigationScreenConfigProps { }
+interface NHPickerState {
+  selectedItem?: any;
+  selected1: string;
+  results: {
+    items: Array<any>;
+  };
+}
+class NHPicker extends React.Component<NHPickerProps, NHPickerState> {
+  constructor(props: NHPickerProps) {
     super(props);
     this.state = {
       selectedItem: undefined,
@@ -38,10 +48,7 @@ class NHPicker extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button
-              transparent
-              onPress={() => this.props.navigation.navigate("DrawerOpen")}
-            >
+            <Button transparent={true} onPress={() => this.props.navigation.navigate("DrawerOpen")}>
               <Icon name="menu" />
             </Button>
           </Left>
@@ -52,7 +59,7 @@ class NHPicker extends Component {
         </Header>
 
         <Content>
-          <ListItem icon>
+          <ListItem icon={true}>
             <Left>
               <Button style={{ backgroundColor: "#4CDA64" }}>
                 <Icon name="arrow-dropdown" />
@@ -63,7 +70,7 @@ class NHPicker extends Component {
             </Body>
             <Right>
               <Picker
-                note
+                note={true}
                 mode="dropdown"
                 style={{ width: 120 }}
                 selectedValue={this.state.selected1}

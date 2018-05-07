@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -14,8 +14,17 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class MultipleFab extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface MultipleFabProps extends NavigationScreenConfigProps { }
+interface MultipleFabState {
+  active: boolean;
+  active1: boolean;
+  active2: boolean;
+  active3: boolean;
+}
+class MultipleFab extends React.Component<MultipleFabProps, MultipleFabState> {
+  constructor(props: MultipleFabProps) {
     super(props);
     this.state = {
       active: false,
@@ -29,7 +38,7 @@ class MultipleFab extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -55,7 +64,7 @@ class MultipleFab extends Component {
             <Button style={{ backgroundColor: "#3B5998" }}>
               <IconNB name="logo-facebook" />
             </Button>
-            <Button disabled style={{ backgroundColor: "#DD5144" }}>
+            <Button disabled={true} style={{ backgroundColor: "#DD5144" }}>
               <IconNB name="ios-mail" />
             </Button>
           </Fab>
@@ -74,7 +83,7 @@ class MultipleFab extends Component {
             <Button style={{ backgroundColor: "#3B5998" }}>
               <IconNB name="logo-facebook" />
             </Button>
-            <Button disabled style={{ backgroundColor: "#DD5144" }}>
+            <Button disabled={true} style={{ backgroundColor: "#DD5144" }}>
               <IconNB name="ios-mail" />
             </Button>
           </Fab>
@@ -93,7 +102,7 @@ class MultipleFab extends Component {
             <Button style={{ backgroundColor: "#3B5998" }}>
               <IconNB name="logo-facebook" />
             </Button>
-            <Button disabled style={{ backgroundColor: "#DD5144" }}>
+            <Button disabled={true} style={{ backgroundColor: "#DD5144" }}>
               <IconNB name="ios-mail" />
             </Button>
           </Fab>
@@ -112,12 +121,12 @@ class MultipleFab extends Component {
             <Button style={{ backgroundColor: "#3B5998" }}>
               <IconNB name="logo-facebook" />
             </Button>
-            <Button disabled style={{ backgroundColor: "#DD5144" }}>
+            <Button disabled={true} style={{ backgroundColor: "#DD5144" }}>
               <IconNB name="ios-mail" />
             </Button>
           </Fab>
         </View>
-      </Container>
+      </Container >
     );
   }
 }

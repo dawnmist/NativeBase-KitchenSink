@@ -1,4 +1,5 @@
-import _ from "lodash";
+import * as _ from "lodash";
+import { NativeBase } from "native-base";
 import bodyTheme from "./Body";
 import leftTheme from "./Left";
 import rightTheme from "./Right";
@@ -42,7 +43,14 @@ import formTheme from "./Form";
 import separatorTheme from "./Separator";
 import variable from "./../variables/platform";
 
-export default (variables = variable) => {
+interface ParentStyle {
+  [styleName: string]: any;
+}
+interface GrandparentStyle {
+  [name: string]: ParentStyle;
+}
+
+export default (variables: NativeBase.Variables = variable) => {
   const theme = {
     variables,
     "NativeBase.Left": {
@@ -211,7 +219,7 @@ export default (variables = variable) => {
     }
   };
 
-  const cssifyTheme = (grandparent, parent, parentKey) => {
+  const cssifyTheme = (grandparent: GrandparentStyle | null, parent: ParentStyle, parentKey: string | null) => {
     _.forEach(parent, (style, styleName) => {
       // console.log('styleName', styleName);
       // console.log('parentKey', parentKey);

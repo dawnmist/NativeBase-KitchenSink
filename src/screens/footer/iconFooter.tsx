@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -14,8 +14,17 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class IconFooter extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface IconFooterProps extends NavigationScreenConfigProps { }
+interface IconFooterState {
+  tab1: boolean;
+  tab2: boolean;
+  tab3: boolean;
+  tab4: boolean;
+}
+class IconFooter extends React.Component<IconFooterProps, IconFooterState> {
+  constructor(props: IconFooterProps) {
     super(props);
     this.state = {
       tab1: false,
@@ -61,7 +70,7 @@ class IconFooter extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -71,7 +80,7 @@ class IconFooter extends Component {
           <Right />
         </Header>
 
-        <Content padder />
+        <Content padder={true} />
 
         <Footer>
           <FooterTab>

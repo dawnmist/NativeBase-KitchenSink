@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,13 +15,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class NHCardHeaderAndFooter extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHCardHeaderAndFooterProps extends NavigationScreenConfigProps { }
+class NHCardHeaderAndFooter extends React.Component<NHCardHeaderAndFooterProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -31,9 +34,9 @@ class NHCardHeaderAndFooter extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Card style={styles.mb}>
-            <CardItem header>
+            <CardItem header={true}>
               <Text>NativeBase</Text>
             </CardItem>
             <CardItem>
@@ -63,7 +66,7 @@ class NHCardHeaderAndFooter extends Component {
                 </Text>
               </Body>
             </CardItem>
-            <CardItem footer>
+            <CardItem footer={true}>
               <Text>GeekyAnts</Text>
             </CardItem>
           </Card>

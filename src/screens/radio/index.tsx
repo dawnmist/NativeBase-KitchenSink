@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,10 +13,18 @@ import {
   Right,
   Body
 } from "native-base";
+import { NavigationScreenConfigProps } from "react-navigation";
 import styles from "./styles";
 
-class NHRadio extends Component {
-  constructor(props) {
+export interface NHRadioProps extends NavigationScreenConfigProps { }
+interface NHRadioState {
+  radio1: boolean;
+  radio2: boolean;
+  radio3: boolean;
+  radio4: boolean;
+}
+class NHRadio extends React.Component<NHRadioProps, NHRadioState> {
+  constructor(props: NHRadioProps) {
     super(props);
     this.state = {
       radio1: false,
@@ -63,7 +71,7 @@ class NHRadio extends Component {
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />

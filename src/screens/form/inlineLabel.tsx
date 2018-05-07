@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -17,13 +17,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class InlineLabel extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface InlineLabelProps extends NavigationScreenConfigProps { }
+class InlineLabel extends React.Component<InlineLabelProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -35,17 +38,17 @@ class InlineLabel extends Component {
 
         <Content>
           <Form>
-            <Item inlineLabel>
+            <Item inlineLabel={true}>
               <Label>Username</Label>
               <Input />
             </Item>
-            <Item inlineLabel last>
+            <Item inlineLabel={true} last={true}>
               <Label>Password</Label>
-              <Input secureTextEntry />
+              <Input secureTextEntry={true} />
             </Item>
           </Form>
 
-          <Button block style={{ margin: 15, marginTop: 50 }}>
+          <Button block={true} style={{ margin: 15, marginTop: 50 }}>
             <Text>Sign In</Text>
           </Button>
         </Content>

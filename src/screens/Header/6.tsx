@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,13 +13,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Header6 extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface Header6Props extends NavigationScreenConfigProps { }
+class Header6 extends React.Component<Header6Props> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -27,19 +30,19 @@ class Header6 extends Component {
             <Title>Header</Title>
           </Body>
           <Right>
-            <Button transparent>
+            <Button transparent={true}>
               <Icon name="search" />
             </Button>
-            <Button transparent>
+            <Button transparent={true}>
               <Icon name="heart" />
             </Button>
-            <Button transparent>
+            <Button transparent={true}>
               <Icon name="more" />
             </Button>
           </Right>
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Text>Header with multiple Icon Buttons</Text>
         </Content>
       </Container>

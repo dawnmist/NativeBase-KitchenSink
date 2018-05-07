@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,13 +13,16 @@ import {
   Text
 } from "native-base";
 
-class IconFamily extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface IconFamilyProps extends NavigationScreenConfigProps { }
+class IconFamily extends React.Component<IconFamilyProps> {
   render() {
     return (
       <Container style={{ backgroundColor: "#FFF" }}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>

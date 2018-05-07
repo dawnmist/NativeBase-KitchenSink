@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -16,8 +16,17 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class BadgeFooter extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface BadgeFooterProps extends NavigationScreenConfigProps { }
+interface BadgeFooterState {
+  tab1: boolean;
+  tab2: boolean;
+  tab3: boolean;
+  tab4: boolean;
+}
+class BadgeFooter extends React.Component<BadgeFooterProps, BadgeFooterState> {
+  constructor(props: BadgeFooterProps) {
     super(props);
     this.state = {
       tab1: false,
@@ -63,7 +72,7 @@ class BadgeFooter extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -73,15 +82,15 @@ class BadgeFooter extends Component {
           <Right />
         </Header>
 
-        <Content padder />
+        <Content padder={true} />
 
         <Footer>
           <FooterTab>
             <Button
               active={this.state.tab1}
               onPress={() => this.toggleTab1()}
-              vertical
-              badge
+              vertical={true}
+              badge={true}
             >
               <Badge>
                 <Text>2</Text>
@@ -96,8 +105,8 @@ class BadgeFooter extends Component {
             <Button
               active={this.state.tab3}
               onPress={() => this.toggleTab3()}
-              vertical
-              badge
+              vertical={true}
+              badge={true}
             >
               <Badge style={{ backgroundColor: "green" }}>
                 <Text>51</Text>

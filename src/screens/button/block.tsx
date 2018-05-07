@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,13 +13,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Block extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface BlockProps extends NavigationScreenConfigProps { }
+class Block extends React.Component<BlockProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -29,26 +32,26 @@ class Block extends Component {
           <Right />
         </Header>
 
-        <Content padder style={{ backgroundColor: "#FFF", padding: 20 }}>
-          <Button block light style={styles.mb15}>
+        <Content padder={true} style={{ backgroundColor: "#FFF" }}>
+          <Button block={true} light={true} style={styles.mb15}>
             <Text>Light</Text>
           </Button>
-          <Button block info style={styles.mb15}>
+          <Button block={true} info={true} style={styles.mb15}>
             <Text>Info</Text>
           </Button>
-          <Button block primary style={styles.mb15}>
+          <Button block={true} primary={true} style={styles.mb15}>
             <Text>Primary</Text>
           </Button>
-          <Button block success style={styles.mb15}>
+          <Button block={true} success={true} style={styles.mb15}>
             <Text>Success</Text>
           </Button>
-          <Button block warning style={styles.mb15}>
+          <Button block={true} warning={true} style={styles.mb15}>
             <Text>Warning</Text>
           </Button>
-          <Button block danger style={styles.mb15}>
+          <Button block={true} danger={true} style={styles.mb15}>
             <Text>Danger</Text>
           </Button>
-          <Button block dark style={styles.mb15}>
+          <Button block={true} dark={true} style={styles.mb15}>
             <Text>Dark</Text>
           </Button>
         </Content>

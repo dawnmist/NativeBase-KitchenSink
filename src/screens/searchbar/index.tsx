@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -9,26 +9,28 @@ import {
   Content,
   Text
 } from "native-base";
+import { NavigationScreenConfigProps } from "react-navigation";
 import styles from "./styles";
 
-class NHSearchbar extends Component {
+export interface NHSearchbarProps extends NavigationScreenConfigProps { }
+class NHSearchbar extends React.Component<NHSearchbarProps> {
   render() {
     return (
       <Container style={styles.container}>
-        <Header searchBar rounded>
+        <Header searchBar={true} rounded={true}>
           <Item>
-            <Icon active name="search" />
+            <Icon active={true} name="search" />
             <Input placeholder="Search" />
-            <Icon active name="people" />
+            <Icon active={true} name="people" />
           </Item>
-          <Button transparent>
+          <Button transparent={true}>
             <Text>Search</Text>
           </Button>
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Button
-            block
+            block={true}
             onPress={() => this.props.navigation.navigate("DrawerOpen")}
           >
             <Text>Back</Text>

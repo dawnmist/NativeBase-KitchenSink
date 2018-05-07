@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -15,13 +15,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Rounded extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface RoundedProps extends NavigationScreenConfigProps { }
+class Rounded extends React.Component<RoundedProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -31,9 +34,9 @@ class Rounded extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Form>
-            <Item rounded>
+            <Item rounded={true}>
               <Input placeholder="Rounded Textbox" />
             </Item>
           </Form>

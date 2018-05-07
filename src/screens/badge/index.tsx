@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,15 +13,17 @@ import {
   Body
 } from "native-base";
 import styles from "./styles";
+import { NavigationScreenConfigProps } from "react-navigation";
 
-class NHBadge extends Component {
+export interface NHBadgeProps extends NavigationScreenConfigProps { }
+class NHBadge extends React.Component<NHBadgeProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -33,26 +35,26 @@ class NHBadge extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Badge style={styles.mb}>
             <Text>2</Text>
           </Badge>
-          <Badge primary style={styles.mb}>
+          <Badge primary={true} style={styles.mb}>
             <Text>2</Text>
           </Badge>
-          <Badge success style={styles.mb}>
+          <Badge success={true} style={styles.mb}>
             <Text>2</Text>
           </Badge>
-          <Badge info style={styles.mb}>
+          <Badge info={true} style={styles.mb}>
             <Text>2</Text>
           </Badge>
-          <Badge warning style={styles.mb}>
+          <Badge warning={true} style={styles.mb}>
             <Text>2</Text>
           </Badge>
-          <Badge danger style={styles.mb}>
+          <Badge danger={true} style={styles.mb}>
             <Text>2</Text>
           </Badge>
-          <Badge primary style={styles.mb}>
+          <Badge primary={true} style={styles.mb}>
             <Icon
               name="star"
               style={{ fontSize: 15, color: "#fff", lineHeight: 20 }}

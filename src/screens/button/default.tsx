@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -13,13 +13,16 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class Default extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface DefaultProps extends NavigationScreenConfigProps { }
+class Default extends React.Component<DefaultProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -29,26 +32,26 @@ class Default extends Component {
           <Right />
         </Header>
 
-        <Content padder style={{ backgroundColor: "#fff", padding: 20 }}>
-          <Button light style={styles.mb15}>
+        <Content padder={true} style={{ backgroundColor: "#fff" }}>
+          <Button light={true} style={styles.mb15}>
             <Text>Light</Text>
           </Button>
-          <Button info style={styles.mb15}>
+          <Button info={true} style={styles.mb15}>
             <Text>Info</Text>
           </Button>
-          <Button primary style={styles.mb15}>
+          <Button primary={true} style={styles.mb15}>
             <Text>Primary</Text>
           </Button>
-          <Button success style={styles.mb15}>
+          <Button success={true} style={styles.mb15}>
             <Text>Success</Text>
           </Button>
-          <Button warning style={styles.mb15}>
+          <Button warning={true} style={styles.mb15}>
             <Text>Warning</Text>
           </Button>
-          <Button danger style={styles.mb15}>
+          <Button danger={true} style={styles.mb15}>
             <Text>Danger</Text>
           </Button>
-          <Button dark style={styles.mb15}>
+          <Button dark={true} style={styles.mb15}>
             <Text>Dark</Text>
           </Button>
         </Content>

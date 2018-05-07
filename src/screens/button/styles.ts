@@ -1,6 +1,4 @@
-const React = require("react-native");
-
-const { StyleSheet } = React;
+import { StyleSheet } from "react-native";
 
 export default {
   container: {
@@ -36,4 +34,4 @@ export default {
     alignSelf: "center",
     alignItems: "center"
   }
-};
+} as StyleSheet.NamedStyles<any>;

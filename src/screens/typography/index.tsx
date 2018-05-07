@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -16,14 +16,17 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class NHTypography extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHTypographyProps extends NavigationScreenConfigProps { }
+class NHTypography extends React.Component<NHTypographyProps> {
   render() {
     return (
       <Container style={styles.container}>
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />
@@ -35,7 +38,7 @@ class NHTypography extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <H1 style={styles.mb10}>Header One</H1>
           <H2 style={styles.mb10}>Header Two</H2>
           <H3 style={styles.mb10}>Header Three</H3>

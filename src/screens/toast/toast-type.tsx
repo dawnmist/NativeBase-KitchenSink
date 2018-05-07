@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -14,8 +14,14 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-class ToastType extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface ToastTypeProps extends NavigationScreenConfigProps { }
+interface ToastTypeState {
+  showToast: boolean;
+}
+class ToastType extends React.Component<ToastTypeProps, ToastTypeState> {
+  constructor(props: ToastTypeProps) {
     super(props);
     this.state = {
       showToast: false
@@ -26,7 +32,7 @@ class ToastType extends Component {
       <Container style={styles.container}>
         <Header>
           <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
+            <Button transparent={true} onPress={() => this.props.navigation.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -36,7 +42,7 @@ class ToastType extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content padder={true}>
           <Button
             onPress={() =>
               Toast.show({
@@ -47,7 +53,7 @@ class ToastType extends Component {
             <Text>Default Toast</Text>
           </Button>
           <Button
-            success
+            success={true}
             style={styles.mb15}
             onPress={() =>
               Toast.show({
@@ -59,7 +65,7 @@ class ToastType extends Component {
             <Text>Success Toast</Text>
           </Button>
           <Button
-            warning
+            warning={true}
             style={styles.mb15}
             onPress={() =>
               Toast.show({
@@ -71,7 +77,7 @@ class ToastType extends Component {
             <Text>Warning Toast</Text>
           </Button>
           <Button
-            danger
+            danger={true}
             style={styles.mb15}
             onPress={() =>
               Toast.show({

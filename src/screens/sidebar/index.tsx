@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Image } from "react-native";
 import {
   Content,
@@ -177,8 +177,15 @@ const datas = [
   }
 ];
 
-class SideBar extends Component {
-  constructor(props) {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface SideBarProps extends NavigationScreenConfigProps { }
+interface SideBarState {
+  shadowOffsetWidth: number;
+  shadowRadius: number;
+}
+class SideBar extends React.Component<SideBarProps, SideBarState> {
+  constructor(props: SideBarProps) {
     super(props);
     this.state = {
       shadowOffsetWidth: 1,
@@ -194,19 +201,19 @@ class SideBar extends Component {
           style={{ flex: 1, backgroundColor: "#fff", top: -1 }}
         >
           <Image source={drawerCover} style={styles.drawerCover} />
-          <Image square style={styles.drawerImage} source={drawerImage} />
+          <Image style={styles.drawerImage} source={drawerImage} />
 
           <List
             dataArray={datas}
-            renderRow={data =>
+            renderRow={(data) =>
               <ListItem
-                button
-                noBorder
+                button={true}
+                noBorder={true}
                 onPress={() => this.props.navigation.navigate(data.route)}
               >
                 <Left>
                   <Icon
-                    active
+                    active={true}
                     name={data.icon}
                     style={{ color: "#777", fontSize: 26, width: 30 }}
                   />

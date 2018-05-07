@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import {
   Container,
   Header,
@@ -12,12 +12,14 @@ import {
   ActionSheet,
   Text
 } from "native-base";
-var BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
-var DESTRUCTIVE_INDEX = 3;
-var CANCEL_INDEX = 4;
+import { NavigationScreenConfigProps } from "react-navigation";
+const BUTTONS = ["Option 0", "Option 1", "Option 2", "Delete", "Cancel"];
+const DESTRUCTIVE_INDEX = 3;
+const CANCEL_INDEX = 4;
 
-export default class ActionSheetNB extends Component {
-  constructor(props) {
+export interface ActionSheetNBProps extends NavigationScreenConfigProps { }
+export default class ActionSheetNB extends React.Component<ActionSheetNBProps> {
+  constructor(props: ActionSheetNBProps) {
     super(props);
     this.state = {};
   }
@@ -27,7 +29,7 @@ export default class ActionSheetNB extends Component {
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="ios-menu" />
@@ -38,7 +40,7 @@ export default class ActionSheetNB extends Component {
           </Body>
           <Right />
         </Header>
-        <Content padder>
+        <Content padder={true}>
           <Button
             onPress={() =>
               ActionSheet.show(
@@ -48,7 +50,7 @@ export default class ActionSheetNB extends Component {
                   destructiveButtonIndex: DESTRUCTIVE_INDEX,
                   title: "Select an option"
                 },
-                buttonIndex => {
+                (buttonIndex) => {
                   this.setState({ clicked: BUTTONS[buttonIndex] });
                 }
               )}

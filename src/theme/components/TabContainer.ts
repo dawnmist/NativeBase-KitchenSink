@@ -1,9 +1,9 @@
-import variable from "./../variables/platform";
+import { NativeBase } from "native-base";
 import { Platform } from "react-native";
+import variable from "./../variables/platform";
 
-export default (variables = variable) => {
+export default (variables: NativeBase.Variables = variable) => {
   const platformStyle = variables.platformStyle;
-  const platform = variables.platform;
 
   const tabContainerTheme = {
     elevation: 3,

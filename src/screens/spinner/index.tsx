@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 
 import {
   Container,
@@ -15,7 +15,10 @@ import {
 
 import styles from "./styles";
 
-class NHSpinner extends Component {
+import { NavigationScreenConfigProps } from "react-navigation";
+
+export interface NHSpinnerProps extends NavigationScreenConfigProps { }
+class NHSpinner extends React.Component<NHSpinnerProps> {
   // eslint-disable-line
 
   render() {
@@ -24,7 +27,7 @@ class NHSpinner extends Component {
         <Header>
           <Left>
             <Button
-              transparent
+              transparent={true}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
               <Icon name="menu" />

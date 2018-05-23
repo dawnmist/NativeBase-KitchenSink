@@ -1,4 +1,4 @@
-import { Dimensions, Platform, StyleSheet } from "react-native";
+import { Dimensions, ImageStyle, Platform } from "react-native";
 const deviceHeight = Dimensions.get("window").height;
 
 export default {
@@ -18,10 +18,10 @@ export default {
     top: Platform.OS === "android" ? 35 : 60,
     width: 280,
     height: 100
-  },
+  } as ImageStyle,
   text: {
     color: "#D8D8D8",
     bottom: 6,
     marginTop: 5
   }
-} as StyleSheet.NamedStyles<any>;
+};

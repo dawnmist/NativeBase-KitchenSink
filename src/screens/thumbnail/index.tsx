@@ -13,12 +13,12 @@ import {
   Right,
   View
 } from "native-base";
+import { NavigationScreenConfigProps } from "react-navigation";
+import { ImageStyle } from "react-native";
 import styles from "./styles";
 
 const logo = require("../../../assets/splashscreen.png");
 const cover = require("../../../assets/web-cover1.jpg");
-
-import { NavigationScreenConfigProps } from "react-navigation";
 
 export interface NHThumbnailProps extends NavigationScreenConfigProps { }
 class NHThumbnail extends React.Component<NHThumbnailProps> {

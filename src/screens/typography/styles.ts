@@ -1,5 +1,3 @@
-import { StyleSheet } from "react-native";
-
 export default {
   container: {
     backgroundColor: "#FFF"
@@ -7,4 +5,4 @@ export default {
   mb10: {
     marginBottom: 10
   }
-} as StyleSheet.NamedStyles<any>;
+};

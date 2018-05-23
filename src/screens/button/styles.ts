@@ -1,5 +1,3 @@
-import { StyleSheet } from "react-native";
-
 export default {
   container: {
     backgroundColor: "#FFF"
@@ -34,4 +32,4 @@ export default {
     alignSelf: "center",
     alignItems: "center"
   }
-} as StyleSheet.NamedStyles<any>;
+};

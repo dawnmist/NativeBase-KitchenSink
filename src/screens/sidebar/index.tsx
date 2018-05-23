@@ -11,6 +11,7 @@ import {
   Right,
   Badge
 } from "native-base";
+import { NavigationScreenConfigProps } from "react-navigation";
 import styles from "./style";
 
 const drawerCover = require("../../../assets/drawer-cover.png");
@@ -176,8 +177,6 @@ const datas = [
     bg: "#48525D"
   }
 ];
-
-import { NavigationScreenConfigProps } from "react-navigation";
 
 export interface SideBarProps extends NavigationScreenConfigProps { }
 interface SideBarState {

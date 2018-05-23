@@ -22,6 +22,7 @@
     "strictPropertyInitialization": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
-    "noImplicitThis": true
+    "noImplicitThis": true,
+    "skipLibCheck": true
   }
 }

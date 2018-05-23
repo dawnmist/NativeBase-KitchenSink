@@ -1,4 +1,4 @@
-import { Platform, Dimensions, StyleSheet } from "react-native";
+import { ImageStyle, Platform, Dimensions, StyleSheet, TextStyle } from "react-native";
 
 const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
@@ -10,7 +10,7 @@ export default {
     width: undefined,
     position: "relative",
     marginBottom: 10
-  },
+  } as ImageStyle,
   drawerImage: {
     position: "absolute",
     left: Platform.OS === "android" ? deviceWidth / 10 : deviceWidth / 9,
@@ -18,16 +18,16 @@ export default {
     width: 210,
     height: 75,
     resizeMode: "cover"
-  },
+  } as ImageStyle,
   text: {
     fontWeight: Platform.OS === "ios" ? "500" : "400",
     fontSize: 16,
     marginLeft: 20
-  },
+  } as TextStyle,
   badgeText: {
     fontSize: Platform.OS === "ios" ? 13 : 11,
     fontWeight: "400",
     textAlign: "center",
     marginTop: Platform.OS === "android" ? -3 : undefined
-  }
-} as StyleSheet.NamedStyles<any>;
+  } as TextStyle
+};

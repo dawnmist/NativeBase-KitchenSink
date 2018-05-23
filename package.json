@@ -5,8 +5,8 @@
   "devDependencies": {
     "@types/color": "^3.0.0",
     "@types/expo": "^26.0.2",
-    "@types/lodash": "^4.14.108",
     "@types/jest": "^22.2.2",
+    "@types/lodash": "^4.14.108",
     "@types/react": "^16.3.13",
     "@types/react-native": "^0.55.12",
     "@types/react-native-drawer": "^2.5.0",
@@ -23,12 +23,12 @@
     "flow-bin": "0.52.0",
     "flow-typed": "2.1.5",
     "husky": "0.14.3",
-    "ts-jest": "^22.4.2",
     "jest-expo": "26.0.0",
-    "react-native-typescript-transformer": "^1.2.3",
-    "react-test-renderer": "16.3.0-alpha.1",
     "prettier": "1.5.3",
     "react-native-scripts-ts": "~1.13.0",
+    "react-native-typescript-transformer": "^1.2.3",
+    "react-test-renderer": "16.3.0-alpha.1",
+    "ts-jest": "^22.4.2",
     "tslib": "^1.9.0",
     "tslint": "^5.10.0",
     "tslint-react": "^3.5.1",
@@ -40,7 +40,8 @@
     "eject": "react-native-scripts-ts eject",
     "android": "react-native-scripts-ts android",
     "ios": "react-native-scripts-ts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "tsc": "tsc"
   },
   "jest": {
     "globals": {

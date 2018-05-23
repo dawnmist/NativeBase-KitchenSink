@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { TextStyle, ViewStyle } from "react-native";
 
 export default {
   container: {
@@ -12,7 +12,7 @@ export default {
     flexWrap: "wrap",
     justifyContent: "space-around",
     paddingLeft: 15
-  },
+  } as ViewStyle,
   iconText: {
     fontSize: 12
   },
@@ -24,8 +24,8 @@ export default {
   col: {
     alignItems: "center",
     paddingHorizontal: 3
-  },
+  } as ViewStyle,
   row: {
     paddingBottom: 20
-  }
-} as StyleSheet.NamedStyles<any>;
+  } as ViewStyle
+};

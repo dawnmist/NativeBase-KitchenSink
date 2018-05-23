@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { ImageStyle, StyleSheet, ViewStyle } from "react-native";
 
 export default {
   container: {
@@ -6,8 +6,8 @@ export default {
   },
   mb10: {
     marginBottom: 10
-  },
+  } as ImageStyle,
   mb35: {
     marginBottom: 35
-  }
-} as StyleSheet.NamedStyles<any>;
+  } as ImageStyle
+};
